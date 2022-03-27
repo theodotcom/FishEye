@@ -1,3 +1,5 @@
+
+   
 // Display Photographer Data into the Header of his own page
 async function displayPhotographerData(photographer) {
     const photographerSection = document.querySelector(".photograph-header");
@@ -176,30 +178,3 @@ function init(phDetails) {
 init([]);
 
 
-function onSelectFilterType() {
-    const type = document.getElementById("filterSelect").value;
-    let test = []
-    if (!type) {
-        return;
-    } else if (type === 'title') {
-        test = photographerDetails.sort(function (a, b) {
-            var textA = a.title;
-            var textB = b.title;
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        });
-
-    } else if (type === 'popularity') {
-
-        test = photographerDetails.sort(function (a, b) {
-            var textA = a.likes;
-            var textB = b.likes;
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        });
-
-    }
-    const photographerSection = document.querySelector(".photograph-header");
-    if (photographerSection) {
-        photographerSection.innerHTML = ''
-    }
-    init(test)
-}
