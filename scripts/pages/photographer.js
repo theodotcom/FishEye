@@ -43,9 +43,9 @@ function getMediaDom(photographerMedia, photographer) {
             const {name, likes, title, photographerId} = elmt
 
             const picture = `Sample Photos/${getNickname(photographer.name)}/${elmt.image ? elmt.image : elmt.video}`;
-
             const mediaCard = document.createElement('a');
-         
+            mediaCard.setAttribute ("id", "myImg");
+         // Href  pour plugins 
             let media;
             if (elmt.image) {
                 const img = document.createElement('img');
@@ -173,9 +173,30 @@ function init(phDetails) {
             displayPhotographerData(photographer)
             displayMediasData(photographerDetails, photographer)
             initEvent();
-
+// MEMO Je devrais aussi lancer la lightbox ici 
         });
 }
 
 init([]);
 
+// creation d'une fonction pour la lightbox
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - 
+var img2 = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img2.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
