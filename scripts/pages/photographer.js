@@ -37,6 +37,7 @@ function getMediaDom(photographerMedia, photographer) {
         const mediaCardContainer = document.createElement('div');
         mediaCardContainer.setAttribute("class", "container");
 
+
         for (var i = 0; i <= photographerMedia.length - 1; i++) {
             const elmt = photographerMedia[i]
             const {name, likes, title, photographerId} = elmt
@@ -44,6 +45,7 @@ function getMediaDom(photographerMedia, photographer) {
             const picture = `Sample Photos/${getNickname(photographer.name)}/${elmt.image ? elmt.image : elmt.video}`;
 
             const mediaCard = document.createElement('a');
+         
             let media;
             if (elmt.image) {
                 const img = document.createElement('img');
@@ -52,8 +54,8 @@ function getMediaDom(photographerMedia, photographer) {
             } else if (elmt.video) {
                 const video = document.createElement('video');
                 const source = document.createElement('source');
-                source.setAttribute("src", picture)
-                source.setAttribute("type", "video/mp4")
+                source.setAttribute("src", picture);
+                source.setAttribute("type", "video/mp4");
                 media = video
 
                 video.appendChild(source);
@@ -176,5 +178,4 @@ function init(phDetails) {
 }
 
 init([]);
-
 
