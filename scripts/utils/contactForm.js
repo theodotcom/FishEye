@@ -1,4 +1,5 @@
-function displayModal() {
+
+//function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
@@ -53,7 +54,7 @@ function validate(e) {
   
   //The input event fires when the value of an <input>, <select>, or <textarea> element has been changed
   //start the Error function
-  formData.forEach((formData) => formData.addEventListener("input", error));
+  //formData.forEach((formData) => formData.addEventListener("input", error));
   
   //modal input error visible or not : starts the errorvisible from css when input is not valid or empty
   //es5 because of the this property not the same in => 
