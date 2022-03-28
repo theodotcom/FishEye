@@ -45,6 +45,11 @@ function getMediaDom(photographerMedia, photographer) {
             const picture = `Sample Photos/${getNickname(photographer.name)}/${elmt.image ? elmt.image : elmt.video}`;
             const mediaCard = document.createElement('a');
             mediaCard.setAttribute ("id", "myImg");
+            var modalImg = document.getElementById("img01");
+            mediaCard.addEventListener('click',function (){
+                modal.style.display = "block";
+                modalImg.src = picture;
+            })
          // Href  pour plugins 
             let media;
             if (elmt.image) {
