@@ -56,7 +56,7 @@ function getMediaDom(photographerMedia, photographer) {
             // When the user clicks on <span> (x), close the modal
             span.addEventListener('click',function (){
             modal.style.display = "none";
-            })  
+            });  
             let media;
             if (elmt.image) {
                 const img = document.createElement('img');
