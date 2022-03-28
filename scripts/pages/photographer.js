@@ -1,191 +1,218 @@
-
-   
 // Display Photographer Data into the Header of his own page
 async function displayPhotographerData(photographer) {
-    const photographerSection = document.querySelector(".photograph-header");
-    if (photographerSection) {
-        photographerSection.innerHTML = ''
-    }
+  const photographerSection = document.querySelector(".photograph-header");
+  if (photographerSection) {
+    photographerSection.innerHTML = "";
+  }
 
-    const photographerModel = getPhotographerDom(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographerSection.appendChild(userCardDOM);
-};
+  const photographerModel = getPhotographerDom(photographer);
+  const userCardDOM = photographerModel.getUserCardDOM();
+  photographerSection.appendChild(userCardDOM);
+}
 
 // Display Each medias of the photographer
 async function displayMediasData(photographerDetails, photographer) {
-    const mediaSection = document.querySelector(".photographer_info");
-    const mediaModel = getMediaDom(photographerDetails, photographer);
-    const userCardDOM = mediaModel.getUserCardDOM();
-    mediaSection.appendChild(userCardDOM);
-};
+  const mediaSection = document.querySelector(".photographer_info");
+  const mediaModel = getMediaDom(photographerDetails, photographer);
+  const userCardDOM = mediaModel.getUserCardDOM();
+  mediaSection.appendChild(userCardDOM);
+}
 
 //Get the Nickname to be able to reach their datas into json
 function getNickname(str) {
-    const strArray = str.split(" ");
-    strArray.forEach(function (entry) {
-        entry += " "
-    });
-    return strArray[0]
-};
+  const strArray = str.split(" ");
+  strArray.forEach(function (entry) {
+    entry += " ";
+  });
+  return strArray[0];
+}
 
-let currentMedia
+let currentMedia;
 
 // Get the medias of the photographer to push them into the DOM
 function getMediaDom(photographerMedia, photographer) {
-    function getUserCardDOM() {
-        const mediaCardContainer = document.createElement('div');
-        mediaCardContainer.setAttribute("class", "container");
+  function getUserCardDOM() {
+    const mediaCardContainer = document.createElement("div");
+    mediaCardContainer.setAttribute("class", "container");
 
+    for (var i = 0; i <= photographerMedia.length - 1; i++) {
+      const elmt = photographerMedia[i];
+      const { name, likes, title, photographerId } = elmt;
 
-        for (var i = 0; i <= photographerMedia.length - 1; i++) {
-            const elmt = photographerMedia[i]
-            const {name, likes, title, photographerId} = elmt
+      const picture = `Sample Photos/${getNickname(photographer.name)}/${
+        elmt.image ? elmt.image : elmt.video
+      }`;
+      const mediaCard = document.createElement("a");
+      mediaCard.setAttribute("id", "myImg");
+    //   let slideIndex = 1;
+    //   showSlides(slideIndex);
 
-            const picture = `Sample Photos/${getNickname(photographer.name)}/${elmt.image ? elmt.image : elmt.video}`;
-            const mediaCard = document.createElement('a');
-            mediaCard.setAttribute ("id", "myImg");
-            var modalImg = document.getElementById("img01");
-            mediaCard.addEventListener('click',function (){
-                modal.style.display = "block";
-                modalImg.src = picture;
-            })
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
+    //   // Next/previous controls
+    //   function plusSlides(n) {
+    //     showSlides((slideIndex += n));
+    //   }
 
-            // When the user clicks on <span> (x), close the modal
-            span.addEventListener('click',function (){
-            modal.style.display = "none";
-            });  
-            let media;
-            if (elmt.image) {
-                const img = document.createElement('img');
-                img.setAttribute("src", picture)
-                media = img
-            } else if (elmt.video) {
-                const video = document.createElement('video');
-                const source = document.createElement('source');
-                source.setAttribute("src", picture);
-                source.setAttribute("type", "video/mp4");
-                media = video
+      var modalImg = document.getElementById("img01");
+      //function who launch the modal
+      // Should implement slides
+      mediaCard.addEventListener("click", function () {
+        modal.style.display = "block";
+        modalImg.src = picture;
+      });
+    //  function showSlides(n) {
+    //     var i;
+    //     var slides = document.getElementsById("img01");
+    //     if (n > slides.length) {
+    //       slideIndex = 1;
+    //     }
+    //     if (n < 1) {
+    //       slideIndex = slides.length;
+    //     }
+    //     for (i = 0; i < slides.length; i++) {
+    //       slides[i].style.display = "none";
+    //     }
 
-                video.appendChild(source);
-                video.addEventListener('click', function () {
-                    source.setAttribute("play", true)
-                })
-            }
-            // Generate other DOM elements
-            const divDetails = document.createElement('div');
-            divDetails.setAttribute("class", "divDetails");
-            const h2 = document.createElement('h2');
-            h2.textContent = title;
-            const h3 = document.createElement('h3');
-            h3.textContent = likes;
-            const button = document.createElement('button');
-            button.setAttribute("class", "fas fa-heart");
-            // Incrementing by one the likes' number when clicked on heart
-            button.addEventListener('click', function count() {
-                var like = likes
-                like = +1
-                h3.textContent = likes + like
-            })
+    //     slides[slideIndex - 1].style.display = "block";
+    //   }
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
 
-            mediaCardContainer.appendChild(mediaCard);
-            mediaCard.appendChild(media);
-            mediaCard.appendChild(divDetails);
-            divDetails.appendChild(h2);
-            divDetails.appendChild(h3);
-            divDetails.appendChild(button);
+      // When the user clicks on <span> (x), close the modal
+      span.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+      let media;
+      if (elmt.image) {
+        const img = document.createElement("img");
+        img.setAttribute("src", picture);
+        media = img;
+      } else if (elmt.video) {
+        const video = document.createElement("video");
+        const source = document.createElement("source");
+        source.setAttribute("src", picture);
+        source.setAttribute("type", "video/mp4");
+        media = video;
 
-        }
+        video.appendChild(source);
+        video.addEventListener("click", function () {
+          source.setAttribute("play", true);
+        });
+      }
+      // Generate other DOM elements
+      const divDetails = document.createElement("div");
+      divDetails.setAttribute("class", "divDetails");
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      const h3 = document.createElement("h3");
+      h3.textContent = likes;
+      const button = document.createElement("button");
+      button.setAttribute("class", "fas fa-heart");
+      // Incrementing by one the likes' number when clicked on heart
+      button.addEventListener("click", function count() {
+        var like = likes;
+        like = +1;
+        h3.textContent = likes + like;
+      });
 
-        return (mediaCardContainer)
+      mediaCardContainer.appendChild(mediaCard);
+      mediaCard.appendChild(media);
+      mediaCard.appendChild(divDetails);
+      divDetails.appendChild(h2);
+      divDetails.appendChild(h3);
+      divDetails.appendChild(button);
     }
 
-    return {getUserCardDOM}
+    return mediaCardContainer;
+  }
 
-};
+  return { getUserCardDOM };
+}
 
 // Get the datas of all the photographer to push them into the DOM
 
 function getPhotographerDom(data) {
-    const {name, portrait, tagline, city, country, price, medias} = data;
-    const picture = `Sample Photos/Photographers ID Photos/${portrait}`;
+  const { name, portrait, tagline, city, country, price, medias } = data;
+  const picture = `Sample Photos/Photographers ID Photos/${portrait}`;
 
-    function getUserCardDOM() {
-        const theDiv = document.createElement('div');
-        theDiv.setAttribute("id", "theDiv");
-        const myDiv1 = document.createElement('div');
-        myDiv1.setAttribute("class", "myDiv1");
-        const h2 = document.createElement('h2');
-        h2.textContent = name;
-        const h3 = document.createElement('h3');
-        h3.textContent = city + ',' + ' ' + country;
-        const my1p = document.createElement('p');
-        my1p.textContent = tagline;
-        const myDiv2 = document.createElement('div');
-        myDiv2.setAttribute("class", "myDiv2");
-        const img = document.createElement('img');
-        img.setAttribute("src", picture);
-        theDiv.appendChild(myDiv1);
-        myDiv1.appendChild(h2);
-        myDiv1.appendChild(h3);
-        myDiv1.appendChild(my1p);
-        theDiv.appendChild(myDiv2);
-        myDiv2.appendChild(img);
-        return (theDiv)
-    }
+  function getUserCardDOM() {
+    const theDiv = document.createElement("div");
+    theDiv.setAttribute("id", "theDiv");
+    const myDiv1 = document.createElement("div");
+    myDiv1.setAttribute("class", "myDiv1");
+    const h2 = document.createElement("h2");
+    h2.textContent = name;
+    const h3 = document.createElement("h3");
+    h3.textContent = city + "," + " " + country;
+    const my1p = document.createElement("p");
+    my1p.textContent = tagline;
+    const myDiv2 = document.createElement("div");
+    myDiv2.setAttribute("class", "myDiv2");
+    const img = document.createElement("img");
+    img.setAttribute("src", picture);
+    theDiv.appendChild(myDiv1);
+    myDiv1.appendChild(h2);
+    myDiv1.appendChild(h3);
+    myDiv1.appendChild(my1p);
+    theDiv.appendChild(myDiv2);
+    myDiv2.appendChild(img);
+    return theDiv;
+  }
 
-    return {getUserCardDOM}
-
-
+  return { getUserCardDOM };
 }
 
 // Init all datas and display them
 
-let photographerDetails = []
-let photographer = []
+let photographerDetails = [];
+let photographer = [];
 
 function sortPhotographerDetails(type) {
-    return photographerDetails.sort((d1, d2) => {
-        if(type === 'title'){
-            return d1.title > d2.title ? 1 : -1
-        }
-        if(type === 'popularity'){
-            return d1.likes < d2.likes ? 1 : -1
-        }
-    })
+  return photographerDetails.sort((d1, d2) => {
+    if (type === "title") {
+      return d1.title > d2.title ? 1 : -1;
+    }
+    if (type === "popularity") {
+      return d1.likes < d2.likes ? 1 : -1;
+    }
+  });
 }
 
-function initEvent(){
-    const filterSelectForm = document.querySelector('#filterSelect')
-    filterSelectForm.addEventListener('change', (e) => {
-        photographerDetails = sortPhotographerDetails(e.target.value)
-        const cardsDom = getMediaDom(photographerDetails, photographer).getUserCardDOM()
-        const photographerInfoDom = document.querySelector('.photographer_info')
-        photographerInfoDom.innerHTML = ''
-        photographerInfoDom.appendChild(cardsDom)
-    })
+function initEvent() {
+  const filterSelectForm = document.querySelector("#filterSelect");
+  filterSelectForm.addEventListener("change", (e) => {
+    photographerDetails = sortPhotographerDetails(e.target.value);
+    const cardsDom = getMediaDom(
+      photographerDetails,
+      photographer
+    ).getUserCardDOM();
+    const photographerInfoDom = document.querySelector(".photographer_info");
+    photographerInfoDom.innerHTML = "";
+    photographerInfoDom.appendChild(cardsDom);
+  });
 }
 
 function init(phDetails) {
-    const queryString = window.location.search;
-    const searchParams = new URLSearchParams(queryString);
-    const photographers = fetch('../../data/photographers.json')
-        .then(res => res.json())
-        .then(data => {
-            const pageId = searchParams.get('id');
-            if (phDetails.length === 0) {
-                photographerDetails = data.media.filter(media => media.photographerId == pageId);
-            } else {
-                photographerDetails = phDetails
-            }
-            photographer = data.photographers.find(photographer => photographer.id == pageId);
-            displayPhotographerData(photographer)
-            displayMediasData(photographerDetails, photographer)
-            initEvent();
-// MEMO Je devrais aussi lancer la lightbox ici 
-        });
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  const photographers = fetch("../../data/photographers.json")
+    .then((res) => res.json())
+    .then((data) => {
+      const pageId = searchParams.get("id");
+      if (phDetails.length === 0) {
+        photographerDetails = data.media.filter(
+          (media) => media.photographerId == pageId
+        );
+      } else {
+        photographerDetails = phDetails;
+      }
+      photographer = data.photographers.find(
+        (photographer) => photographer.id == pageId
+      );
+      displayPhotographerData(photographer);
+      displayMediasData(photographerDetails, photographer);
+      initEvent();
+      // MEMO Je devrais aussi lancer la lightbox ici
+    });
 }
 
 init([]);
@@ -195,7 +222,33 @@ init([]);
 // Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the image and insert it inside the modal - 
+// Get the image and insert it inside the modal -
 var img2 = document.getElementById("myImg");
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
 
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+var modalImg = document.getElementById("img01");
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsById("img01");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+}
