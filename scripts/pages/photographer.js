@@ -40,20 +40,15 @@ function getMediaDom(photographerMedia, photographer) {
     for (var i = 0; i <= photographerMedia.length - 1; i++) {
       const elmt = photographerMedia[i];
       const { name, likes, title, photographerId } = elmt;
+  
 
+    
       const picture = `Sample Photos/${getNickname(photographer.name)}/${
         elmt.image ? elmt.image : elmt.video
       }`;
       const mediaCard = document.createElement("a");
       mediaCard.setAttribute("id", "myImg");
-    //   let slideIndex = 1;
-    //   showSlides(slideIndex);
-
-    //   // Next/previous controls
-    //   function plusSlides(n) {
-    //     showSlides((slideIndex += n));
-    //   }
-
+   
       const modalContent = document.querySelector('.modal-content .carousel-container')
       mediaCard.addEventListener("click", function () {
         const medias = photographerMedia.map((media) => mediaFactory(media, photographer.name))
@@ -62,21 +57,7 @@ function getMediaDom(photographerMedia, photographer) {
         })
         modal.style.display = "block";
       });
-    //  function showSlides(n) {
-    //     var i;
-    //     var slides = document.getElementsById("img01");
-    //     if (n > slides.length) {
-    //       slideIndex = 1;
-    //     }
-    //     if (n < 1) {
-    //       slideIndex = slides.length;
-    //     }
-    //     for (i = 0; i < slides.length; i++) {
-    //       slides[i].style.display = "none";
-    //     }
-
-    //     slides[slideIndex - 1].style.display = "block";
-    //   }
+    
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
 
@@ -127,7 +108,12 @@ function getMediaDom(photographerMedia, photographer) {
 
     return mediaCardContainer;
   }
+// move this part to get likes counter
+const likesNumber = photographerMedia.reduce(function(_this, val) {
+    return _this + val.likes
+}, 0);
 
+console.log('likes',likesNumber)
   return { getUserCardDOM };
 }
 
@@ -247,3 +233,16 @@ function init(phDetails) {
 }
 
 init([]);
+
+// function to iterates likes from each photographer
+
+function getLikesNumber(photographerMedia) {
+    
+    
+        var likesNumber = photographerMedia.reduce(function(_this, val) {
+          return _this + val.likes
+      }, 0);
+  
+    console.log('likes',likesNumber)
+    
+}
