@@ -245,3 +245,17 @@ form input {
 .prev {
   left: 90px;
 }
+
+.modal-content {
+  overflow: hidden;
+  width: 300px;
+}
+
+.modal-content .carousel-container{
+  display: flex;
+  transition: all .250s linear;
+}
+
+.modal-content img, .modal-content video {
+  width: 300px;
+}

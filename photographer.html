@@ -1,106 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
+</head>
+<body>
+<header>
+    <img src="assets/images/logo.png" class="logo"/>
+</header>
+<main id="main">
+    <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+    </div>
 
-      <div class="select">
+    <div class="select">
         <select onchange="onSelectFilterType()" id="filterSelect">
-          <option value="">Trier par</option>
-          <option value="title">Nom</option>
-          <option value="popularity">Popularité</option>
+            <option value="">Trier par</option>
+            <option value="title">Nom</option>
+            <option value="popularity">Popularité</option>
         </select>
-      </div>
- 
-      <div class="photographer_info"> </div>
-<!--Modal-->
+    </div>
 
-<div id="myModal" class="modal">
+    <div class="photographer_info"></div>
+    <!--Modal-->
 
-  <!-- The Close Button -->
-  <span class="close">&times;</span>
+    <div id="myModal" class="modal">
 
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
 
-  <!-- Next/previous controls -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
+        <!-- Modal Content (The Image) -->
+        <div class="modal-content">
+            <div class="carousel-container"></div>
+        </div>
+
+        <!-- Next/previous controls -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
+</main>
+
+<!-- Form -->
+<div id="contact_modal">
+    <div class="modal">
+        <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+        </header>
+
+        <form>
+            <div
+                    class="formData" data-error-visible="false">
+                <label for="first">Prénom</label><br>
+                <input
+                        class="text-control"
+                        type="text"
+                        id="first"
+                        name="first"
+                        minlength="2"
+                        required
+                /><br>
+            </div>
+            <div
+                    class="formData" data-error-visible="false">
+                <label for="last">Nom</label><br>
+                <input
+                        class="text-control"
+                        type="text"
+                        id="last"
+                        name="last"
+                        minlength="2"
+                        required
+                /><br>
+            </div>
+            <div
+                    class="formData" data-error-visible="false">
+                <label for="email">E-mail</label><br>
+                <input
+                        class="text-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                /><br>
+            </div>
+            <label>Votre Message</label>
+            <input/>
+    </div>
+    <button class="contact_button">Envoyer</button>
+    </form>
+</div>
 </div>
 
-    </main>
 
-    <!-- Form -->      
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-			
-        <form>
-          <div
-          class="formData" data-error-visible="false">
-          <label for="first">Prénom</label><br>
-          <input
-            class="text-control"
-            type="text"
-            id="first"
-            name="first"
-            minlength="2"
-            required     
-          /><br>
-        </div>
-        <div
-        class="formData" data-error-visible="false">
-        <label for="last">Nom</label><br>
-          <input
-            class="text-control"
-            type="text"
-            id="last"
-            name="last"  
-            minlength="2"
-            required     
-          /><br>
-        </div>
-        <div
-        class="formData" data-error-visible="false">
-        <label for="email">E-mail</label><br>
-          <input
-            class="text-control"
-            type="email"
-            id="email"
-            name="email"
-            required pattern= "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-          /><br>
-        </div>
-						<label>Votre Message</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-
-    <script type='module' src="scripts/factories/page.js"></script>
-    <script type='module' src="scripts/factories/photographer.js"></script>
-    <script type='module' src="scripts/pages/photographer.js"></script>
-    <script src="https://kit.fontawesome.com/1f5306553e.js" crossorigin="anonymous"></script>
-  </body>
+<script type='module' src="scripts/pages/photographer.js"></script>
+<script src="https://kit.fontawesome.com/1f5306553e.js" crossorigin="anonymous"></script>
+</body>
 </html>

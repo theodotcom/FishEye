@@ -1,3 +1,6 @@
+import {getNickname} from '../utils/index.js'
+import mediaFactory from '../factories/media.js'
+
 // Display Photographer Data into the Header of his own page
 async function displayPhotographerData(photographer) {
   const photographerSection = document.querySelector(".photograph-header");
@@ -18,16 +21,15 @@ async function displayMediasData(photographerDetails, photographer) {
   mediaSection.appendChild(userCardDOM);
 }
 
-//Get the Nickname to be able to reach their datas into json
-function getNickname(str) {
-  const strArray = str.split(" ");
-  strArray.forEach(function (entry) {
-    entry += " ";
-  });
-  return strArray[0];
-}
 
 let currentMedia;
+let currentSlide = 0;
+let nbMedias = 0;
+// creation d'une fonction pour la lightbox
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
 
 // Get the medias of the photographer to push them into the DOM
 function getMediaDom(photographerMedia, photographer) {
@@ -52,12 +54,13 @@ function getMediaDom(photographerMedia, photographer) {
     //     showSlides((slideIndex += n));
     //   }
 
-      var modalImg = document.getElementById("img01");
-      //function who launch the modal
-      // Should implement slides
+      const modalContent = document.querySelector('.modal-content .carousel-container')
       mediaCard.addEventListener("click", function () {
+        const medias = photographerMedia.map((media) => mediaFactory(media, photographer.name))
+        medias.forEach(media => {
+          modalContent.appendChild(media)
+        })
         modal.style.display = "block";
-        modalImg.src = picture;
       });
     //  function showSlides(n) {
     //     var i;
@@ -191,6 +194,32 @@ function initEvent() {
   });
 }
 
+function nextSlide(){
+  const carousel = document.querySelector('.carousel-container')
+  currentSlide += 1;
+  if(currentSlide === nbMedias){
+    currentSlide = 0;
+  }
+  carousel.style.transform = `translateX(-${currentSlide * 300}px)`
+}
+
+function previousSlide(){
+  const carousel = document.querySelector('.carousel-container')
+  currentSlide -= 1
+  if(currentSlide === -1){
+    currentSlide = nbMedias - 1;
+  }
+  carousel.style.transform = `translateX(-${currentSlide * 300}px)`
+}
+
+function initCarouselEvent() {
+  const next = document.querySelector('.next')
+  const previous = document.querySelector('.prev')
+
+  next.addEventListener('click', nextSlide)
+  previous.addEventListener('click', previousSlide)
+}
+
 function init(phDetails) {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
@@ -208,47 +237,13 @@ function init(phDetails) {
       photographer = data.photographers.find(
         (photographer) => photographer.id == pageId
       );
+      nbMedias = photographerDetails.length
       displayPhotographerData(photographer);
       displayMediasData(photographerDetails, photographer);
       initEvent();
+      initCarouselEvent();
       // MEMO Je devrais aussi lancer la lightbox ici
     });
 }
 
 init([]);
-
-// creation d'une fonction pour la lightbox
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal -
-var img2 = document.getElementById("myImg");
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-var modalImg = document.getElementById("img01");
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsById("img01");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-}
