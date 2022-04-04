@@ -22,7 +22,6 @@ async function displayMediasData(photographerDetails, photographer) {
 }
 
 
-let currentMedia;
 let currentSlide = 0;
 let nbMedias = 0;
 // creation d'une fonction pour la lightbox
@@ -34,6 +33,7 @@ var modal = document.getElementById("myModal");
 // Get the medias of the photographer to push them into the DOM
 function getMediaDom(photographerMedia, photographer) {
   function getUserCardDOM() {
+   
     const mediaCardContainer = document.createElement("div");
     mediaCardContainer.setAttribute("class", "container");
 
@@ -42,7 +42,18 @@ function getMediaDom(photographerMedia, photographer) {
       const { name, likes, title, photographerId } = elmt;
   
 
+      
+      const likesNumber = photographerMedia.reduce(function(_this, val) {
+        return _this + val.likes
+    }, 0);
+
+    const likeys = document.getElementById("myLikes");
+    likeys.textContent = likesNumber;
+  
     
+    
+ 
+
       const picture = `Sample Photos/${getNickname(photographer.name)}/${
         elmt.image ? elmt.image : elmt.video
       }`;
@@ -108,12 +119,7 @@ function getMediaDom(photographerMedia, photographer) {
 
     return mediaCardContainer;
   }
-// move this part to get likes counter
-const likesNumber = photographerMedia.reduce(function(_this, val) {
-    return _this + val.likes
-}, 0);
 
-console.log('likes',likesNumber)
   return { getUserCardDOM };
 }
 
