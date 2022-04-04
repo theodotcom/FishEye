@@ -144,6 +144,7 @@ form input {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  overflow: hidden;
 }
 
 
@@ -275,4 +276,6 @@ margin-left: 85%;
 
   .select{
     display: flex;
+    margin: 0 100px;
+
   }
