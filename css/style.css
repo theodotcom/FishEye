@@ -25,14 +25,14 @@ h1 {
 
 /* Photographer Proper Page */
 .photographer_info .container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display:grid;
+    grid-template-columns: 300px 300px 300px;
     gap: 104px;
     margin-top: 15px;
 }
 
 .divDetails {
-  /*display: flex;*/
+  display: flex;
 }
 
 .photographer_section{
@@ -78,12 +78,12 @@ h1 {
 .photographer_info div img, .photographer_info div video  {
     height: 290px;
     width: 290px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .photographer_info {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1em 100px;
+    
     margin: 75px 100px;
 }
 
