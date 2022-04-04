@@ -270,3 +270,7 @@ bottom: 0;
 background-color: #DB8876;
 margin-left: 85%;
   }
+
+  .select{
+    display: flex;
+  }
