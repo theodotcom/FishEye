@@ -32,6 +32,7 @@ var modal = document.getElementById("myModal");
 
 // Get the medias of the photographer to push them into the DOM
 function getMediaDom(photographerMedia, photographer) {
+
   function getUserCardDOM() {
    
     const mediaCardContainer = document.createElement("div");
@@ -41,8 +42,8 @@ function getMediaDom(photographerMedia, photographer) {
       const elmt = photographerMedia[i];
       const { name, likes, title, photographerId } = elmt;
   
-
-      
+// Likes counter
+   
       const likesNumber = photographerMedia.reduce(function(_this, val) {
         return _this + val.likes
     }, 0);
@@ -51,7 +52,8 @@ function getMediaDom(photographerMedia, photographer) {
     likeys.textContent = likesNumber;
     const lover = document.getElementById("likeHeart");
     lover.setAttribute("class", "fas fa-heart");
-
+const phPrice = document.getElementById("price");
+phPrice.textContent = photographer.price + "Euros" + "/" + "jour";
    
 
       const picture = `Sample Photos/${getNickname(photographer.name)}/${
