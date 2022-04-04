@@ -49,10 +49,10 @@ function getMediaDom(photographerMedia, photographer) {
 
     const likeys = document.getElementById("myLikes");
     likeys.textContent = likesNumber;
-  
-    
-    
- 
+    const lover = document.getElementById("likeHeart");
+    lover.setAttribute("class", "fas fa-heart");
+
+   
 
       const picture = `Sample Photos/${getNickname(photographer.name)}/${
         elmt.image ? elmt.image : elmt.video
