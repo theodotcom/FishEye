@@ -259,3 +259,14 @@ form input {
 .modal-content img, .modal-content video {
   width: 300px;
 }
+   /*like Container*/
+
+   .likeContainer{
+     position: sticky;
+    display: flex;
+    justify-content: flex-end;
+top: 0;
+bottom: 0;
+background-color: #DB8876;
+margin-left: 85%;
+  }
