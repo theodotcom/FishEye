@@ -217,7 +217,7 @@ function initCarouselEvent() {
 function init(phDetails) {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
-  const photographers = fetch("../../data/photographers.json")
+  const photographers = fetch("https://theodotcom.github.io/FishEye/data/photographers.json")
     .then((res) => res.json())
     .then((data) => {
       const pageId = searchParams.get("id");
