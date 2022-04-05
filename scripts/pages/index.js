@@ -1,7 +1,7 @@
 import {photographerFactory} from '../factories/photographer.js';
 
 export async function getPhotographers() {
-    const fetchData = await fetch('../data/photographers.json')
+    const fetchData = await fetch('https://theodotcom.github.io/FishEye/data/photographers.json')
     .then((response) => {
       return response.json()
     })
