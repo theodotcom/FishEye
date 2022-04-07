@@ -27,8 +27,9 @@ h1 {
 .photographer_info .container{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 104px;
+    gap: 13px;
     margin-top: 15px;
+    column-gap: 7em;
 }
 
 .divDetails {
@@ -54,6 +55,16 @@ h1 {
     height: 2%;
     color: #D3573C;
     font-size: 36px;
+}
+
+.photographer_section article h3 {
+    color: #901c1c;
+    margin-top: 8px;
+}
+
+.myPrice{
+    color: #525252;
+    font-size: small;
 }
 
 .photographer_section article p {

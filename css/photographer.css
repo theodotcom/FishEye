@@ -1,7 +1,3 @@
-h2, h3 {
-  color: black !important;
-}
-
 #contact_modal {
   display: none;
 }
@@ -40,6 +36,10 @@ h2, h3 {
 .myDiv1 h3{
   color: #901C1C;
   margin-bottom: 35px;
+}
+
+.myDiv1 p{
+  color: #525252;
 }
 
 .divDetails h3{

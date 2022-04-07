@@ -12,11 +12,12 @@ export function photographerFactory(data) {
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const h3 = document.createElement('h3');
-        h3.textContent = `${city},${country}`;
+        h3.textContent = `${city}, ${country}`;
         const my1p = document.createElement ('p');
         my1p.textContent = tagline ;
         const my2p = document.createElement ('p');
         my2p.textContent = price+'€/jour' ;
+        my2p.setAttribute("class", "myPrice");
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild (h3);
