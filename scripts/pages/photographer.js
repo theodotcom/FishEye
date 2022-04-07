@@ -145,8 +145,12 @@ function getPhotographerDom(data) {
         h3.textContent = city + "," + " " + country;
         const my1p = document.createElement("p");
         my1p.textContent = tagline;
-        const myDiv2 = document.createElement("div");
-        myDiv2.setAttribute("class", "myDiv2");
+        const myDiv2 = document.createElement("button");
+        myDiv2.setAttribute("class", "contact_button");
+        myDiv2.textContent = 'Contactez-moi';
+// add event listener for contact form
+        const myDiv3 = document.createElement("div");
+        myDiv3.setAttribute("class", "myDiv2");
         const img = document.createElement("img");
         img.setAttribute("src", picture);
         theDiv.appendChild(myDiv1);
@@ -154,7 +158,8 @@ function getPhotographerDom(data) {
         myDiv1.appendChild(h3);
         myDiv1.appendChild(my1p);
         theDiv.appendChild(myDiv2);
-        myDiv2.appendChild(img);
+        theDiv.appendChild(myDiv3);
+        myDiv3.appendChild(img);
         return theDiv;
     }
 
