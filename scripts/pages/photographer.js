@@ -88,13 +88,9 @@ function getMediaDom(photographerMedia, photographer) {
         modal.style.display = "block";
       });
 
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks on <span> (x), close the modal
-      span.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
+      
+    
+     
       // Generate other DOM elements
       const divDetails = document.createElement("div");
       divDetails.setAttribute("class", "divDetails");
@@ -262,3 +258,25 @@ function getLikesNumber(photographerMedia) {
     return _this + val.likes;
   }, 0);
 }
+
+
+// Accessibility from keyboard into caroussel 
+window.onkeyup = function (e){
+  if (e.keyCode == 27) {
+    modal.style.display = "none";;
+  }       
+  else if (e.keyCode == 39){
+    nextSlide()
+  }
+  else if (e.keyCode == 37){
+    previousSlide()
+  }
+};
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.addEventListener("click", function () {
+  modal.style.display = "none";
+});
