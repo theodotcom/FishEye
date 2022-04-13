@@ -57,17 +57,17 @@ function getMediaDom(photographerMedia, photographer) {
       mediaCard.setAttribute("id", "myImg");
 
      
-      let media;
+      let media1;
       if (elmt.image) {
         const img = document.createElement("img");
         img.setAttribute("src", picture);
-        media = img;
+        media1 = img;
       } else if (elmt.video) {
         const video = document.createElement("video");
         const source = document.createElement("source");
         source.setAttribute("src", picture);
         source.setAttribute("type", "video/mp4");
-        media = video;
+        media1 = video;
 
         video.appendChild(source);
         video.addEventListener("click", function () {
@@ -78,7 +78,7 @@ function getMediaDom(photographerMedia, photographer) {
       const modalContent = document.querySelector(
         ".modal-content .carousel-container"
       );
-      media.addEventListener("click", function () {
+      media1.addEventListener("click", function () {
         const medias = photographerMedia.map((media) =>
           mediaFactory(media, photographer.name)
         );
@@ -118,7 +118,7 @@ function getMediaDom(photographerMedia, photographer) {
       });
 
       mediaCardContainer.appendChild(mediaCard);
-      mediaCard.appendChild(media);
+      mediaCard.appendChild(media1);
       mediaCard.appendChild(divDetails);
       divDetails.appendChild(h2);
       divDetails.appendChild(h3);
