@@ -55,6 +55,7 @@ function getMediaDom(photographerMedia, photographer) {
       }`;
       const mediaCard = document.createElement("a");
       mediaCard.setAttribute("id", "myImg");
+      mediaCard.tabIndex = 1 ;
 
      
       let media1;
@@ -100,6 +101,7 @@ function getMediaDom(photographerMedia, photographer) {
       h3.textContent = likes;
       const button = document.createElement("button");
       button.setAttribute("class", "fas fa-heart");
+      button.tabIndex = 1;
       // Incrementing by one the likes' number when clicked on heart
       button.addEventListener("click", function count() {
         if (likeIds.includes(elmt.id)) {
@@ -280,3 +282,4 @@ var span = document.getElementsByClassName("close")[0];
 span.addEventListener("click", function () {
   modal.style.display = "none";
 });
+

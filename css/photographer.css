@@ -148,6 +148,10 @@ form input {
   overflow: hidden;
 }
 
+#myImg:focus {
+  background-color: aliceblue;
+}
+
 
 #myImg:hover {opacity: 0.7;}
 

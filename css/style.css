@@ -52,6 +52,10 @@ h1 {
     flex-direction: column;
 }
 
+.photographer_section article:focus {
+    background-color: #818f83; 
+}
+
 .photographer_section article h2 {
     height: 2%;
     color: #D3573C;
