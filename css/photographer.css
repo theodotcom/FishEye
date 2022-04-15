@@ -15,10 +15,11 @@
 
 #theDiv{
   display: flex;
+  justify-content: space-between;
 }
 
 .myDiv1 {
-  margin-left: 48px;
+  margin-left: 2em;
   position: relative;
 }
 
@@ -47,8 +48,8 @@
 }
 
 .contact_button {
-  margin-top: 68px;
-  margin-left: 444px;
+  margin-top: 3em;
+  margin-left: 22em;
   position: absolute;
   font-size: 20px;
   font-weight: bold;

@@ -88,10 +88,22 @@ function getMediaDom(photographerMedia, photographer) {
         });
         modal.style.display = "block";
       });
-
       
-    
-     
+      //Same with enter
+      media1.onkeyup = clickAcces;
+
+      function clickAcces(e){
+        if (e.key === 'Enter'){
+          const medias = photographerMedia.map((media) =>
+          mediaFactory(media, photographer.name)
+        );
+        medias.forEach((media) => {
+          modalContent.appendChild(media);
+        });
+        modal.style.display = "block";
+        }
+      };
+
       // Generate other DOM elements
       const divDetails = document.createElement("div");
       divDetails.setAttribute("class", "divDetails");

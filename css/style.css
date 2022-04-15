@@ -35,6 +35,7 @@ h1 {
 .divDetails {
   display: flex;
   color: #901C1C;
+  justify-content: space-between;
 }
 
 .photographer_section{
