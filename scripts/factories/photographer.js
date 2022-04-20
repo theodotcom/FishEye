@@ -32,4 +32,3 @@ export function photographerFactory(data) {
     return { getUserCardDOM }
 }
 
-

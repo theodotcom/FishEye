@@ -57,7 +57,7 @@ function getMediaDom(photographerMedia, photographer) {
       mediaCard.setAttribute("id", "myImg");
       mediaCard.tabIndex = 1 ;
 
-     
+
       let media1;
       if (elmt.image) {
         const img = document.createElement("img");
@@ -79,7 +79,9 @@ function getMediaDom(photographerMedia, photographer) {
       const modalContent = document.querySelector(
         ".modal-content .carousel-container"
       );
-      media1.addEventListener("click", function () {
+      // Fonction immediate IIFE - Closure sur i qui permet de capturer l'index
+        ((i) => media1.addEventListener("click", function () {
+        modalContent.innerHTML = '';
         const medias = photographerMedia.map((media) =>
           mediaFactory(media, photographer.name)
         );
@@ -87,8 +89,10 @@ function getMediaDom(photographerMedia, photographer) {
           modalContent.appendChild(media);
         });
         modal.style.display = "block";
-      });
-      
+        currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
+        nextSlide() // On provoque la translation du slider pour aller sur la bonne slide
+      }))(i);
+
       //Same with enter
       media1.onkeyup = clickAcces;
 
@@ -186,6 +190,10 @@ let photographer = [];
 
 function sortPhotographerDetails(type) {
   return photographerDetails.sort((d1, d2) => {
+      if (type === "date") {
+          return d1.date > d2.date ? 1 : -1;
+      }
+
     if (type === "title") {
       return d1.title > d2.title ? 1 : -1;
     }
@@ -274,11 +282,11 @@ function getLikesNumber(photographerMedia) {
 }
 
 
-// Accessibility from keyboard into caroussel 
+// Accessibility from keyboard into caroussel
 window.onkeyup = function (e){
   if (e.keyCode == 27) {
     modal.style.display = "none";;
-  }       
+  }
   else if (e.keyCode == 39){
     nextSlide()
   }
@@ -294,4 +302,3 @@ var span = document.getElementsByClassName("close")[0];
 span.addEventListener("click", function () {
   modal.style.display = "none";
 });
-
