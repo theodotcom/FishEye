@@ -270,13 +270,14 @@ form input {
    /*like Container*/
 
    .likeContainer{
-     position: sticky;
     display: flex;
-    justify-content: flex-end;
-top: 0;
-bottom: 0;
-background-color: #DB8876;
-margin-left: 85%;
+    position: fixed;
+    right: 2rem;
+    bottom: 0;
+    padding: 1.25rem 2rem;
+    border-radius: 0.25rem 0.25rem 0 0;
+    font-size: 1.5rem;
+    background: #db8876;
   }
 
   .select{
