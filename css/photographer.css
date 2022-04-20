@@ -224,6 +224,7 @@ form input {
   top: 15px;
   right: 35px;
   color: #901C1C;
+  background-color: inherit;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
@@ -253,6 +254,7 @@ form input {
   padding: 16px;
   margin-top: -50px;
   color:#901C1C;
+  background-color: inherit;
   font-weight: bold;
   font-size: 20px;
   transition: 0.6s ease;
@@ -299,6 +301,8 @@ form input {
 
   .likeContainer #likeHeart{
     margin-right: 3rem;
+    margin-top: 0.1em;
+    margin-left: 0.15em;
   }
 
   .select{

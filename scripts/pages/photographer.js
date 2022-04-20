@@ -84,15 +84,18 @@ function getMediaDom(photographerMedia, photographer) {
         modalContent.innerHTML = '';
         const medias = photographerMedia.map((media) =>
           mediaFactory(media, photographer.name)
-        );
+          );
+       
         medias.forEach((media) => {
-          modalContent.appendChild(media);
+          modalContent.appendChild(media)
         });
         modal.style.display = "block";
         currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
         nextSlide() // On provoque la translation du slider pour aller sur la bonne slide
       }))(i);
 
+
+      
       //Same with enter
       media1.onkeyup = clickAcces;
 
