@@ -43,10 +43,27 @@
   color: #525252;
 }
 
-.divDetails h3{
-  margin-top: 25px;
+.divDetails h2{
+  margin-top: 0.35em;
+  margin-bottom: 0.5rem;
+  padding-right: 0.5rem;
+  overflow: hidden;
+  color: #901c1c;
+  text-align: left;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  white-space: nowrap;
+  width: 9em;
 }
 
+.divDetails h3{
+  margin-top: 0.75em;
+}
+
+.divDetails button{
+  margin-top: -0.25em;
+}
+  
 .contact_button {
   margin-top: 3em;
   margin-left: 22em;
@@ -280,8 +297,17 @@ form input {
     background: #db8876;
   }
 
+  .likeContainer #likeHeart{
+    margin-right: 3rem;
+  }
+
   .select{
     display: flex;
+    padding-top: 2em;
     margin: 0 100px;
 
+  }
+
+  .select h3{
+    margin-right: 0.35em;
   }
