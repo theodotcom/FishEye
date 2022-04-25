@@ -151,8 +151,9 @@ button{
     display: none;
     position: relative;
     z-index: 1;
-    margin: -35% auto;
-    width: 24%;
+    margin: -152% auto;
+    width: 50%;
+    height: 16em;
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
     background: #ac1717;
