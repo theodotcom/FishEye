@@ -54,62 +54,74 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
+    <div class="bground">
+        <div class="content">
+          <span class="close1"></span>
+          <div class="modal-body">
+            <h1 class="modalh2">Contactez-moi</h1>
+            <form
+              name="reserve"
+              action="index.html"   
+              id="formulaire"       >
+              <div
+                class="formData" data-error-visible="false">
+                <label for="first">Prénom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                  required     
+                /><br>
+              </div>
+              <div
+              class="formData" data-error-visible="false">
+              <label for="last">Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"  
+                  minlength="2"
+                  required     
+                /><br>
+              </div>
+              <div
+              class="formData" data-error-visible="false">
+              <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  required pattern= "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                /><br>
+              </div>
+              <div
+              class="formData" data-error-visible="false">
+              <label for="story">Votre Message</label>
+              <textarea id="story" name="story"
+                rows="5" cols="33">
+                </textarea>
+
+              </div>
+              <input 
+                class="btn-submit button"
+                type="submit"
+                value="Envoyer"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
 
 </main>
 
 <!-- Form -->
-<div id="contact_modal">
-    <div class="modal">
-        <header>
-            <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()"/>
-        </header>
-
-        <form>
-            <div
-                    class="formData" data-error-visible="false">
-                <label for="first">Prénom</label><br>
-                <input
-                        class="text-control"
-                        type="text"
-                        id="first"
-                        name="first"
-                        minlength="2"
-                        required
-                /><br>
-            </div>
-            <div
-                    class="formData" data-error-visible="false">
-                <label for="last">Nom</label><br>
-                <input
-                        class="text-control"
-                        type="text"
-                        id="last"
-                        name="last"
-                        minlength="2"
-                        required
-                /><br>
-            </div>
-            <div
-                    class="formData" data-error-visible="false">
-                <label for="email">E-mail</label><br>
-                <input
-                        class="text-control"
-                        type="email"
-                        id="email"
-                        name="email"
-                        required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                /><br>
-            </div>
-            <label>Votre Message</label>
-            <input/>
-    </div>
-    <button class="contact_button1">Envoyer</button>
-    </form>
-</div>
-</div>
 
 
+<script type='module' src="scripts/utils/contactForm.js"></script>
 <script type='module' src="scripts/pages/photographer.js"></script>
 <script src="https://kit.fontawesome.com/1f5306553e.js" crossorigin="anonymous"></script>
 </body>

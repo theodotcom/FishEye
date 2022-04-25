@@ -140,15 +140,12 @@ form {
 
 form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 30px;
 }
 
 form div {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
 }
 
 form input {
