@@ -80,6 +80,11 @@
   cursor: pointer;
 }
 
+.contact_button:hover{
+  background-color: #DB8876;
+  color: black;
+}
+
 /* Lightbox modal */
 
 .lightbox{
@@ -141,6 +146,7 @@ form {
 form label {
   color: #312E2E;
   font-size: 30px;
+  margin-bottom: -1px;
 }
 
 form div {
