@@ -1,13 +1,23 @@
 # FishEye - Photographers accessible plateform
 
-## A propos
-Nos clients prennent de super photos, mais ils n’y connaissent rien en
-développement web. C'est pourquoi nous proposons une plateforme unique pour
-montrer leurs photos sur une belle page et les contacter pour des événements ou
-des tirages. Nous sommes l'un des plus grands sites de photographie en freelance,
-avec un énorme réseau de photographes.
+## About
+Our clients take great pictures, but they know nothing aboutweb development. 
+That's why we offer a unique platform to showcase their photos on a beautiful page and contact them for events or events or prints. 
+We are one of the biggest freelance photography websites,
+with a huge network of photographers.
+
+## Maquettes
 
 ## Installation
 * Depuis la console
+
 gh repo clone theodotcom/FishEye
+
 run liveserver
+
+## Code checker
+
+## Meetings notes
+
+
+
