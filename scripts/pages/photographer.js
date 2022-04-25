@@ -71,9 +71,7 @@ function getMediaDom(photographerMedia, photographer) {
         
         media1 = video;
         video.appendChild(source);
-        video.addEventListener("click", function () {
-          source.controls = true;
-        });
+       
       }
 
       const modalContent = document.querySelector(

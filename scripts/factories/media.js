@@ -10,6 +10,7 @@ export default function mediaFactory(data, photographerName) {
         return img
     } else if (data.video) {
         const video = document.createElement("video");
+        video.controls = true;
         const source = document.createElement("source");
         source.setAttribute("src", picture);
         source.setAttribute("type", "video/mp4");
