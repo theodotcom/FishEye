@@ -8,6 +8,7 @@ export function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.tabIndex = 0;
+        article.href = "#";
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         const h2 = document.createElement( 'h2' );

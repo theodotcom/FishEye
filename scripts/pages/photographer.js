@@ -68,11 +68,11 @@ function getMediaDom(photographerMedia, photographer) {
         const source = document.createElement("source");
         source.setAttribute("src", picture);
         source.setAttribute("type", "video/mp4");
+        
         media1 = video;
-
         video.appendChild(source);
         video.addEventListener("click", function () {
-          source.setAttribute("play", true);
+          source.controls = true;
         });
       }
 
