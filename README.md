@@ -7,3 +7,5 @@ montrer leurs photos sur une belle page et les contacter pour des événements o
 des tirages. Nous sommes l'un des plus grands sites de photographie en freelance,
 avec un énorme réseau de photographes.
 
+## Installation
+
