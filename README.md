@@ -8,4 +8,6 @@ des tirages. Nous sommes l'un des plus grands sites de photographie en freelance
 avec un énorme réseau de photographes.
 
 ## Installation
-
+* Depuis la console
+gh repo clone theodotcom/FishEye
+run liveserver
