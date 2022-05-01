@@ -330,6 +330,7 @@ document.getElementById("formulaire").addEventListener("submit", validate);
 // Checking input before validating and sending form results
 function validate(e) {
   e.preventDefault(); //to prevent page from recharging
+  console.log(first.value, last.value, email.value, story.value);
   if (first.value == "" || first.value.length < 2) {
     formData[0].dataset.errorVisible = true;
     return false;
@@ -337,7 +338,16 @@ function validate(e) {
   if (last.value == "" || last.value.length < 2) {
     formData[1].dataset.errorVisible = true;
     return false;
-  } else {
+  }
+  if (email.value == "" ) {
+    formData[2].dataset.errorVisible = true;
+    return false;
+  } 
+  if (story.value == "" ) {
+    formData[3].dataset.errorVisible = true;
+    return false;
+  } 
+  else {
     modalbg.innerHTML = " Votre message a bien été transmis. Merci";
     modalbg.classList.add("valid-msg");
     return true; // form is send
