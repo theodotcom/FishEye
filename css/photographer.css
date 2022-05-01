@@ -5,7 +5,7 @@
 .photograph-header {
   display: flex;
   align-items: center;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
   border-radius: 5px;
@@ -13,7 +13,7 @@
 
 /* photographer header*/
 
-#theDiv{
+#theDiv {
   display: flex;
   justify-content: space-between;
 }
@@ -28,22 +28,22 @@
   margin-left: 612px;
 }
 
-.myDiv1 h2{
-  color: #D3573C;
+.myDiv1 h2 {
+  color: #d3573c;
   font-size: 40px;
   margin-bottom: -3px;
 }
 
-.myDiv1 h3{
-  color: #901C1C;
+.myDiv1 h3 {
+  color: #901c1c;
   margin-bottom: 35px;
 }
 
-.myDiv1 p{
+.myDiv1 p {
   color: #525252;
 }
 
-.divDetails h2{
+.divDetails h2 {
   margin-top: 0.35em;
   margin-bottom: 0.5rem;
   padding-right: 0.5rem;
@@ -56,14 +56,14 @@
   width: 9em;
 }
 
-.divDetails h3{
+.divDetails h3 {
   margin-top: 0.75em;
 }
 
-.divDetails button{
+.divDetails button {
   margin-top: -0.25em;
 }
-  
+
 .contact_button {
   margin-top: 3em;
   margin-left: 22em;
@@ -75,23 +75,23 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
+  background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.contact_button:hover{
-  background-color: #DB8876;
+.contact_button:hover {
+  background-color: #db8876;
   color: black;
 }
 
 /* Lightbox modal */
 
-.lightbox{
+.lightbox {
   opacity: 0;
   visibility: hidden;
   position: fixed;
-  left:0;
+  left: 0;
   right: 0;
   top: 0;
   bottom: 0;
@@ -102,8 +102,8 @@
   transition: all 0.15s ease-in;
 }
 
-.lightbox.show{
-  background-color: rgba(0,0,0, 0.85);
+.lightbox.show {
+  background-color: rgba(0, 0, 0, 0.85);
   opacity: 1;
   visibility: visible;
   z-index: 1000;
@@ -111,7 +111,7 @@
 
 .modal {
   border-radius: 5px;
-  background-color: #DB8876;
+  background-color: #db8876;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -144,7 +144,7 @@ form {
 }
 
 form label {
-  color: #312E2E;
+  color: #312e2e;
   font-size: 30px;
   margin-bottom: -1px;
 }
@@ -173,8 +173,9 @@ form input {
   background-color: aliceblue;
 }
 
-
-#myImg:hover {opacity: 0.7;}
+#myImg:hover {
+  opacity: 0.7;
+}
 
 /* The Modal (background) */
 .modal {
@@ -211,14 +212,19 @@ form input {
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption {
+.modal-content,
+#caption {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* The Close Button */
@@ -226,7 +232,7 @@ form input {
   position: fixed;
   top: 15px;
   right: 35px;
-  color: #901C1C;
+  color: #901c1c;
   background-color: inherit;
   font-size: 40px;
   font-weight: bold;
@@ -241,7 +247,7 @@ form input {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
   }
@@ -256,7 +262,7 @@ form input {
   width: auto;
   padding: 16px;
   margin-top: -50px;
-  color:#901C1C;
+  color: #901c1c;
   background-color: inherit;
   font-weight: bold;
   font-size: 20px;
@@ -281,40 +287,40 @@ form input {
   width: 300px;
 }
 
-.modal-content .carousel-container{
+.modal-content .carousel-container {
   display: flex;
-  transition: all .250s linear;
+  transition: all 0.25s linear;
 }
 
-.modal-content img, .modal-content video {
+.modal-content img,
+.modal-content video {
   width: 300px;
 }
-   /*like Container*/
+/*like Container*/
 
-   .likeContainer{
-    display: flex;
-    position: fixed;
-    right: 2rem;
-    bottom: 0;
-    padding: 1.25rem 2rem;
-    border-radius: 0.25rem 0.25rem 0 0;
-    font-size: 1.5rem;
-    background: #db8876;
-  }
+.likeContainer {
+  display: flex;
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  padding: 1.25rem 2rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+  font-size: 1.5rem;
+  background: #db8876;
+}
 
-  .likeContainer #likeHeart{
-    margin-right: 3rem;
-    margin-top: 0.1em;
-    margin-left: 0.15em;
-  }
+.likeContainer #likeHeart {
+  margin-right: 3rem;
+  margin-top: 0.1em;
+  margin-left: 0.15em;
+}
 
-  .select{
-    display: flex;
-    padding-top: 2em;
-    margin: 0 100px;
+.select {
+  display: flex;
+  padding-top: 2em;
+  margin: 0 100px;
+}
 
-  }
-
-  .select h3{
-    margin-right: 0.35em;
-  }
+.select h3 {
+  margin-right: 0.35em;
+}

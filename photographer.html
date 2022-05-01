@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-</head>
-<body>
-<header>
-    <a href="index.html">
-    <img src="assets/images/logo.png" class="logo"/>
-    </a>
-</header>
-<main id="main">
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
+    </header>
+    <main id="main">
+      <div class="photograph-header" aria-label="Photographer main infos"></div>
 
-    <div class="photograph-header" aria-label="Photographer main infos"></div>
-
-    <div class="select" role="search">
-       <h3>Trier Par</h3>
+      <div class="select" role="search">
+        <h3>Trier Par</h3>
         <select id="filterSelect">
-            <option value="date">Date</option>
-            <option value="title">Nom</option>
-            <option value="popularity">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Nom</option>
+          <option value="popularity">Popularité</option>
         </select>
-    </div>
+      </div>
 
-    <div class="photographer_info" aria-label="Photographers infos"></div>
+      <div class="photographer_info" aria-label="Photographers infos"></div>
 
-   <!--Likes-->
-    <div class="likeContainer">
+      <!--Likes-->
+      <div class="likeContainer">
         <div id="myLikes" class="myLike"></div>
         <div id="likeHeart"></div>
         <div id="price"></div>
+      </div>
+      <!--Modal-->
 
-    </div>
-    <!--Modal-->
-
-    <div id="myModal" class="modal" aria-hidden="true" aria-describedby="carrousel" >
-
+      <div
+        id="myModal"
+        class="modal"
+        aria-hidden="true"
+        aria-describedby="carrousel"
+      >
         <!-- The Close Button -->
-        <button class="close" >&times; </button>
+        <button class="close">&times;</button>
 
         <!-- Modal Content (The Image) -->
         <div class="modal-content">
-            <div class="carousel-container"></div>
+          <div class="carousel-container"></div>
         </div>
 
         <!-- Next/previous controls -->
@@ -53,76 +58,64 @@
 
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
-    </div>
-    <div class="bground">
+      </div>
+      <div class="bground">
         <div class="content">
           <span class="close1"></span>
           <div class="modal-body">
             <h1 class="modalh2">Contactez-moi</h1>
-            <form
-              name="reserve"
-              action="index.html"   
-              id="formulaire"       >
-              <div
-                class="formData" data-error-visible="false">
-                <label for="first">Prénom</label><br>
+            <form name="reserve" action="index.html" id="formulaire">
+              <div class="formData" data-error-visible="false">
+                <label for="first">Prénom</label><br />
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
-                  required     
-                /><br>
+                  required
+                /><br />
               </div>
-              <div
-              class="formData" data-error-visible="false">
-              <label for="last">Nom</label><br>
+              <div class="formData" data-error-visible="false">
+                <label for="last">Nom</label><br />
                 <input
                   class="text-control"
                   type="text"
                   id="last"
-                  name="last"  
+                  name="last"
                   minlength="2"
-                  required     
-                /><br>
+                  required
+                /><br />
               </div>
-              <div
-              class="formData" data-error-visible="false">
-              <label for="email">E-mail</label><br>
+              <div class="formData" data-error-visible="false">
+                <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
-                  required pattern= "^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                /><br>
+                  required
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                /><br />
               </div>
-              <div
-              class="formData" data-error-visible="false">
-              <label for="story">Votre Message</label>
-              <textarea id="story" name="story"
-                rows="8" cols="52"></textarea>
-
-
+              <div class="formData" data-error-visible="false">
+                <label for="story">Votre Message</label>
+                <textarea id="story" name="story" rows="8" cols="52"></textarea>
               </div>
-              <input 
-                class="btn-submit button"
-                type="submit"
-                value="Envoyer"
-              />
+              <input class="btn-submit button" type="submit" value="Envoyer" />
             </form>
           </div>
         </div>
       </div>
+    </main>
 
-</main>
+    <!-- Form -->
 
-<!-- Form -->
-
-
-<script type='module' src="scripts/utils/contactForm.js"></script>
-<script type='module' src="scripts/pages/photographer.js"></script>
-<script src="https://kit.fontawesome.com/1f5306553e.js" crossorigin="anonymous"></script>
-</body>
+    <script type="module" src="scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
+    <script
+      src="https://kit.fontawesome.com/1f5306553e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

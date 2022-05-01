@@ -1,44 +1,44 @@
 @import url("photographer.css");
 
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 /* Photographer Proper Page */
-.photographer_info .container{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 13px;
-    margin-top: 15px;
-    column-gap: 7em;
+.photographer_info .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 13px;
+  margin-top: 15px;
+  column-gap: 7em;
 }
 
 .divDetails {
   display: flex;
-  color: #901C1C;
+  color: #901c1c;
   justify-content: space-between;
 }
 
-.photographer_section{
+.photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
@@ -46,192 +46,191 @@ h1 {
 }
 
 .photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-.photographer_section article :hover{
-    opacity: 70%;
+.photographer_section article :hover {
+  opacity: 70%;
 }
 
 .photographer_section article:focus {
-    background-color: #818f83; 
+  background-color: #818f83;
 }
 
 .photographer_section article h2 {
-    height: 2%;
-    color: #D3573C;
-    font-size: 36px;
+  height: 2%;
+  color: #d3573c;
+  font-size: 36px;
 }
 
 .photographer_section article h3 {
-    color: #901c1c;
-    margin-top: 8px;
+  color: #901c1c;
+  margin-top: 8px;
 }
 
-.myPrice{
-    color: #525252;
-    font-size: small;
+.myPrice {
+  color: #525252;
+  font-size: small;
 }
 
 .photographer_section article p {
-   margin-top: -13px;
+  margin-top: -13px;
 }
 
 .photographer_section article img {
-    border-radius: 50%;
-    height: 225px;
-    width: 225px;
-    object-fit: cover;
+  border-radius: 50%;
+  height: 225px;
+  width: 225px;
+  object-fit: cover;
 }
 
 .photograph-header div img {
-    height : 170px;
-    width: 170px;
-    border-radius: 50%;
-    margin-top: 16px;
-    object-fit: cover;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  margin-top: 16px;
+  object-fit: cover;
 }
 
-.photographer_info div img, .photographer_info div video  {
-    height: 290px;
-    width: 290px;
-    border-radius: 10px;
-    object-fit: cover;
+.photographer_info div img,
+.photographer_info div video {
+  height: 290px;
+  width: 290px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .photographer_info {
-    margin-top: 2em;
-    margin-right: 100px;
-    margin-bottom: 75px;
-    margin-left: 100px;
+  margin-top: 2em;
+  margin-right: 100px;
+  margin-bottom: 75px;
+  margin-left: 100px;
 }
 
-select h3{
-    font-size: medium;
+select h3 {
+  font-size: medium;
 }
 
 select {
-        background-color: #911c1c;
-        border-radius: 5px;
-        border: none;
-        color: white;
-        font-size: 18px;
-        height: 59px;
-        padding: 0.2rem;
+  background-color: #911c1c;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 18px;
+  height: 59px;
+  padding: 0.2rem;
 }
 
-button{
+button {
   border: none;
   color: #ac1717;
   background-color: none;
 }
 
-.fas{
+.fas {
   background: none;
 }
 
 .bground {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-  }
-  
-  .valid-msg {
-    display: none;
-    position: relative;
-    z-index: 1;
-    margin: -152% auto;
-    width: 50%;
-    height: 16em;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: #ac1717;
-    border-radius: 10px;
-    position: relative;
-    color: #fff;
-    padding-top: 3px;
-  }
-  
-  .content {
-    margin: 5% auto;
-    width: 100%;
-    max-width: 500px;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: #db8876;;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    color: #fff;
-    padding-top: 10px;
-  }
-  
-  .modal-body {
-    padding: 15px 8%;
-    margin: 15px auto;
-    
-  }
-  
-  label {
-    font-family: var(--font-default);
-    font-size: 17px;
-    font-weight: normal;
-    display: inline-block;
-    margin-bottom: 11px;
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
 
-  .text-control {
-    margin-bottom: 3px;
-    padding: 8px;
-    width: 100%;
-    border-radius: 8px;
-    font-size: 20px;
-    height: 36px;
-  }
-  .formData[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: #e54858;
-    display: block;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    text-align: right;
-    line-height: 0.3;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .formData[data-error-visible="true"]::after {
-    opacity: 1;
-  }
-  .formData[data-error-visible="true"] .text-control {
-    border: 2px solid #e54858;
-  }
-  
-  input[data-error]::after {
-      content: attr(data-error);
-      font-size: 0.4em;
-      color: red;
-  } 
+.valid-msg {
+  display: none;
+  position: relative;
+  z-index: 1;
+  margin: -152% auto;
+  width: 50%;
+  height: 16em;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #ac1717;
+  border-radius: 10px;
+  position: relative;
+  color: #fff;
+  padding-top: 3px;
+}
 
+.content {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #db8876;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
 
-  #story{
-      border-radius: 5px;
-  }
+.modal-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
 
-  .btn-submit,
+label {
+  font-family: var(--font-default);
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+
+.text-control {
+  margin-bottom: 3px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 36px;
+}
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
+
+input[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: red;
+}
+
+#story {
+  border-radius: 5px;
+}
+
+.btn-submit,
 .btn-signup {
-  background: #901C1C;
+  background: #901c1c;
   width: 40%;
   display: block;
   border-radius: 7px;
@@ -240,7 +239,6 @@ button{
   border: 0;
   height: 50px;
   margin-top: 20px;
-
 }
 /* custom select styles */
 .custom-select {
@@ -310,33 +308,33 @@ button{
 }
 
 .close1 {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 32px;
-    height: 32px;
-    opacity: 1;
-    cursor: pointer;
-    transform: scale(0.7);
-  }
-  .close1:before,
-  .close1:after {
-    position: absolute;
-    left: 15px;
-    content: " ";
-    height: 33px;
-    width: 3px;
-    background-color: #fff;
-  }
-  .close1:before {
-    transform: rotate(45deg);
-  }
-  .close1:after {
-    transform: rotate(-45deg);
-  }
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close1:before,
+.close1:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.close1:before {
+  transform: rotate(45deg);
+}
+.close1:after {
+  transform: rotate(-45deg);
+}
 
-  .modalh2{
-      color: black;
-      margin-top: -22px;
-    font-size: 43px;
-  }
+.modalh2 {
+  color: black;
+  margin-top: -22px;
+  font-size: 43px;
+}
