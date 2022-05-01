@@ -55,8 +55,7 @@ function getMediaDom(photographerMedia, photographer) {
       }`;
       const mediaCard = document.createElement("a");
       mediaCard.setAttribute("id", "myImg");
-      mediaCard.tabIndex = 1 ;
-
+      mediaCard.tabIndex = 1;
 
       let media1;
       if (elmt.image) {
@@ -68,46 +67,44 @@ function getMediaDom(photographerMedia, photographer) {
         const source = document.createElement("source");
         source.setAttribute("src", picture);
         source.setAttribute("type", "video/mp4");
-        
+
         media1 = video;
         video.appendChild(source);
-       
       }
 
       const modalContent = document.querySelector(
         ".modal-content .carousel-container"
       );
       // Fonction immediate IIFE - Closure sur i qui permet de capturer l'index
-        ((i) => media1.addEventListener("click", function () {
-        modalContent.innerHTML = '';
-        const medias = photographerMedia.map((media) =>
-          mediaFactory(media, photographer.name)
+      ((i) =>
+        media1.addEventListener("click", function () {
+          modalContent.innerHTML = "";
+          const medias = photographerMedia.map((media) =>
+            mediaFactory(media, photographer.name)
           );
-       
-        medias.forEach((media) => {
-          modalContent.appendChild(media)
-        });
-        modal.style.display = "block";
-        currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
-        nextSlide() // On provoque la translation du slider pour aller sur la bonne slide
-      }))(i);
 
+          medias.forEach((media) => {
+            modalContent.appendChild(media);
+          });
+          modal.style.display = "block";
+          currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
+          nextSlide(); // On provoque la translation du slider pour aller sur la bonne slide
+        }))(i);
 
-      
       //Same with enter
       media1.onkeyup = clickAcces;
 
-      function clickAcces(e){
-        if (e.key === 'Enter'){
+      function clickAcces(e) {
+        if (e.key === "Enter") {
           const medias = photographerMedia.map((media) =>
-          mediaFactory(media, photographer.name)
-        );
-        medias.forEach((media) => {
-          modalContent.appendChild(media);
-        });
-        modal.style.display = "block";
+            mediaFactory(media, photographer.name)
+          );
+          medias.forEach((media) => {
+            modalContent.appendChild(media);
+          });
+          modal.style.display = "block";
         }
-      };
+      }
 
       // Generate other DOM elements
       const divDetails = document.createElement("div");
@@ -166,9 +163,9 @@ function getPhotographerDom(data) {
     const myDiv2 = document.createElement("button");
     myDiv2.setAttribute("class", "contact_button");
     myDiv2.textContent = "Contactez-moi";
-    myDiv2.addEventListener("click",function launchModal(){
-      modalbg.style.display = "block" ;
-    }); 
+    myDiv2.addEventListener("click", function launchModal() {
+      modalbg.style.display = "block";
+    });
     // add event listener for contact form
     const myDiv3 = document.createElement("div");
     myDiv3.setAttribute("class", "myDiv2");
@@ -194,9 +191,9 @@ let photographer = [];
 
 function sortPhotographerDetails(type) {
   return photographerDetails.sort((d1, d2) => {
-      if (type === "date") {
-          return d1.date > d2.date ? 1 : -1;
-      }
+    if (type === "date") {
+      return d1.date > d2.date ? 1 : -1;
+    }
 
     if (type === "title") {
       return d1.title > d2.title ? 1 : -1;
@@ -285,17 +282,14 @@ function getLikesNumber(photographerMedia) {
   }, 0);
 }
 
-
 // Accessibility from keyboard into caroussel
-window.onkeyup = function (e){
+window.onkeyup = function (e) {
   if (e.keyCode == 27) {
-    modal.style.display = "none";;
-  }
-  else if (e.keyCode == 39){
-    nextSlide()
-  }
-  else if (e.keyCode == 37){
-    previousSlide()
+    modal.style.display = "none";
+  } else if (e.keyCode == 39) {
+    nextSlide();
+  } else if (e.keyCode == 37) {
+    previousSlide();
   }
 };
 
@@ -307,88 +301,91 @@ span.addEventListener("click", function () {
   modal.style.display = "none";
 });
 
-
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".contact_button");
-const buttonX = document.querySelectorAll(".close1"); 
+const buttonX = document.querySelectorAll(".close1");
 const formData = document.querySelectorAll(".formData");
 const validMsg = document.querySelectorAll(".valid-msg");
 
 // launch modal form
-const launchModal = () => { modalbg.style.display = "block" } ;
+const launchModal = () => {
+  modalbg.style.display = "block";
+};
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal form : click on (X)
-const closeModal = () => { modalbg.style.display = "none" } ;
+const closeModal = () => {
+  modalbg.style.display = "none";
+};
 
 // bouton(X) event : listen when buttonX is clicked and start function "closeModal"
-buttonX.forEach((close) => close.addEventListener("click", closeModal)); 
+buttonX.forEach((close) => close.addEventListener("click", closeModal));
 
 // submit event : écoute de l'évenement "submit" du formulaire qui lance la fonction "validate"
 document.getElementById("formulaire").addEventListener("submit", validate);
 
-
 // Checking input before validating and sending form results
 function validate(e) {
-  e.preventDefault(); //to prevent page from recharging 
-  if(first.value == "" || first.value.length < 2 ) {
-    formData [0].dataset.errorVisible = true;
+  e.preventDefault(); //to prevent page from recharging
+  if (first.value == "" || first.value.length < 2) {
+    formData[0].dataset.errorVisible = true;
     return false;
-  } 
-  if(last.value == "" || last.value.length < 2) {
-    formData [1].dataset.errorVisible = true;
+  }
+  if (last.value == "" || last.value.length < 2) {
+    formData[1].dataset.errorVisible = true;
     return false;
-  } 
-  else {
+  } else {
     modalbg.innerHTML = " Votre message a bien été transmis. Merci";
     modalbg.classList.add("valid-msg");
     return true; // form is send
   }
-} 
+}
 
 // close the modal after submitting it
-const closeBground = () =>  { modalbg.style.display = "none";} ;
+const closeBground = () => {
+  modalbg.style.display = "none";
+};
 
 //The input event fires when the value of an <input>, <select>, or <textarea> element has been changed
 //start the Error function
 formData.forEach((formData) => formData.addEventListener("input", error));
 
 //modal input error visible or not : starts the errorvisible from css when input is not valid or empty
-//es5 because of the this property not the same in => 
+//es5 because of the this property not the same in =>
 function error(e) {
   const validity = e.target.validity;
-  if (!validity.valid || e.target.value === "" ) {
+  if (!validity.valid || e.target.value === "") {
     this.dataset.errorVisible = "true";
-  }else{
+  } else {
     this.dataset.errorVisible = "false";
   }
-};
+}
 
 //modal change event : listen to "change" and starts function "DataError"
 formData.forEach((formData) => formData.addEventListener("change", DataError));
 
-//modal error messages 
+//modal error messages
 function DataError(e) {
   const validity = e.target.validity;
-  if (validity.valid ) {
+  if (validity.valid) {
     this.dataset.error = "";
-  }else {
-    formData [0].dataset.error = "Un prénom c'est au moins deux caractères";
-    formData [1].dataset.error = "Veuillez saisir au moins deux caractères";
-  } 
-};
+  } else {
+    formData[0].dataset.error = "Un prénom c'est au moins deux caractères";
+    formData[1].dataset.error = "Veuillez saisir au moins deux caractères";
+  }
+}
 
 // close the validation message
 
-
-window.onclick = function(event) {
-  
-  if (event.target == modalbg) {  
+window.onclick = function (event) {
+  if (event.target == modalbg) {
     modalbg.style.display = "none";
   }
 };
 
-const closeBground2 = () => { modalbg.style.display = "none"} ;
+const closeBground2 = () => {
+  modalbg.style.display = "none";
+};
