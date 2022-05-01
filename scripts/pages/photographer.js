@@ -92,19 +92,22 @@ function getMediaDom(photographerMedia, photographer) {
         }))(i);
 
       //Same with enter
-      media1.onkeyup = clickAcces;
+      ((i) =>
+      media1.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+        modalContent.innerHTML = "";
+        const medias = photographerMedia.map((media) =>
+          mediaFactory(media, photographer.name)
+        );
 
-      function clickAcces(e) {
-        if (e.key === "Enter") {
-          const medias = photographerMedia.map((media) =>
-            mediaFactory(media, photographer.name)
-          );
-          medias.forEach((media) => {
-            modalContent.appendChild(media);
-          });
-          modal.style.display = "block";
-        }
-      }
+        medias.forEach((media) => {
+          modalContent.appendChild(media);
+        });
+        modal.style.display = "block";
+        currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
+        nextSlide(); // On provoque la translation du slider pour aller sur la bonne slide
+      }}))(i);
 
       // Generate other DOM elements
       const divDetails = document.createElement("div");

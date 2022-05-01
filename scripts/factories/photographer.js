@@ -26,7 +26,15 @@ export function photographerFactory(data) {
     article.addEventListener("click", function () {
       window.location.href = "photographer.html?id=" + id;
     });
+    article.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {window.location.href = "photographer.html?id=" + id;
+    }
+    });
     return article;
   }
   return { getUserCardDOM };
 }
+
+
+
