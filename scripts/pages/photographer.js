@@ -56,6 +56,7 @@ function getMediaDom(photographerMedia, photographer) {
       const mediaCard = document.createElement("a");
       mediaCard.setAttribute("id", "myImg");
       mediaCard.tabIndex = 1;
+      mediaCard.setAttribute("data-card", "media");
 
       let media1;
       if (elmt.image) {
@@ -93,8 +94,8 @@ function getMediaDom(photographerMedia, photographer) {
 
       //Same with enter
       ((i) =>
-      media1.addEventListener("keypress", event => {
-        if (event.keyCode == 13) {
+      document.addEventListener("keypress", function (event) {
+        if (event.keyCode == 13 && event.target.dataset.card == "media") {
         modalContent.innerHTML = "";
         const medias = photographerMedia.map((media) =>
           mediaFactory(media, photographer.name)
@@ -116,6 +117,7 @@ function getMediaDom(photographerMedia, photographer) {
       h3.textContent = likes;
       const button = document.createElement("button");
       button.setAttribute("class", "fas fa-heart");
+      button.tabIndex = 1;
       // Incrementing by one the likes' number when clicked on heart
       button.addEventListener("click", function count() {
         if (likeIds.includes(elmt.id)) {
@@ -162,6 +164,7 @@ function getPhotographerDom(data) {
     my1p.textContent = tagline;
     const myDiv2 = document.createElement("button");
     myDiv2.setAttribute("class", "contact_button");
+    myDiv2.tabIndex = 1;
     myDiv2.textContent = "Contactez-moi";
     myDiv2.addEventListener("click", function launchModal() {
       modalbg.style.display = "block";
