@@ -116,7 +116,6 @@ function getMediaDom(photographerMedia, photographer) {
       h3.textContent = likes;
       const button = document.createElement("button");
       button.setAttribute("class", "fas fa-heart");
-      button.tabIndex = 1;
       // Incrementing by one the likes' number when clicked on heart
       button.addEventListener("click", function count() {
         if (likeIds.includes(elmt.id)) {
