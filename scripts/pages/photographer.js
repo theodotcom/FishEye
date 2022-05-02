@@ -93,14 +93,12 @@ function getMediaDom(photographerMedia, photographer) {
 
       //Same with enter
       ((i) =>
-      media1.addEventListener("keypress", function(event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === "Enter") {
+      media1.addEventListener("keypress", event => {
+        if (event.keyCode == 13) {
         modalContent.innerHTML = "";
         const medias = photographerMedia.map((media) =>
           mediaFactory(media, photographer.name)
         );
-
         medias.forEach((media) => {
           modalContent.appendChild(media);
         });
