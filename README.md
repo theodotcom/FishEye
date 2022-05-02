@@ -17,6 +17,8 @@ run liveserver
 
 ## Code checker
 
+![wcag2AAA](https://user-images.githubusercontent.com/61735898/166227877-b7f474f1-9ea6-43d5-aeac-11cc01b0f32f.png)
+
 ## Meetings notes
 
 
