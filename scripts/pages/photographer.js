@@ -85,6 +85,7 @@ function getMediaDom(photographerMedia, photographer) {
           );
           medias.forEach((media) => {
             let newDiv = modalContent.appendChild(document.createElement('div'));
+            newDiv.setAttribute("class", "newDiv");
             newDiv.appendChild(media.htmlBlock);
             newDiv.appendChild(media.caption);
           });

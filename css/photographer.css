@@ -160,6 +160,15 @@ form input {
   border-radius: 5px;
 }
 
+.newDiv {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.newDiv p{
+  color: #901c1c;
+}
+
 /* Style the Image Used to Trigger the Modal */
 #myImg {
   border-radius: 5px;
