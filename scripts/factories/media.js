@@ -23,9 +23,8 @@ export default function mediaFactory(data, photographerName) {
   }
 
   //Create caption
-  let caption = document.createElement("div");
+  let caption = document.createElement("p");
   caption.innerHTML = data.title
-  caption.id = 'caption'
 
   return {htmlBlock, caption};
 }
