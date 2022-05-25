@@ -25,6 +25,7 @@ async function displayData(photographers) {
 async function init() {
     // Récupère les datas des photographes
     const { photographers, media  } = await getPhotographers();
+   console.log(photographers)
     const queryString = window.location.search; // "?id=243"
     const searchParams = new URLSearchParams(queryString); // => id
 

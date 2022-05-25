@@ -4,10 +4,12 @@ export default function mediaFactory(data, photographerName) {
   const picture = `Sample Photos/${getNickname(photographerName)}/${
     data.image ? data.image : data.video
   }`;
+  const title = data.title;
+  console.log(title)
   if (data.image) {
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    return img;
+    return img ;
   } else if (data.video) {
     const video = document.createElement("video");
     video.controls = true;

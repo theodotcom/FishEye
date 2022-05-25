@@ -39,7 +39,7 @@ function getMediaDom(photographerMedia, photographer) {
     for (var i = 0; i <= photographerMedia.length - 1; i++) {
       const elmt = photographerMedia[i];
       const { name, likes, title, photographerId } = elmt;
-
+      console.log(photographerMedia[i].title)
       // Likes counter
 
       const likesNumber = getLikesNumber(photographerMedia);
@@ -82,8 +82,8 @@ function getMediaDom(photographerMedia, photographer) {
           modalContent.innerHTML = "";
           const medias = photographerMedia.map((media) =>
             mediaFactory(media, photographer.name)
-          );
-
+          );console.log(title)
+          console.log(medias)
           medias.forEach((media) => {
             modalContent.appendChild(media);
           });
@@ -271,7 +271,6 @@ function init(phDetails) {
       displayMediasData(photographerDetails, photographer);
       initEvent();
       initCarouselEvent();
-      // MEMO Je devrais aussi lancer la lightbox ici
     });
 }
 
