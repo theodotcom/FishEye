@@ -39,7 +39,7 @@ function getMediaDom(photographerMedia, photographer) {
     for (var i = 0; i <= photographerMedia.length - 1; i++) {
       const elmt = photographerMedia[i];
       const { name, likes, title, photographerId } = elmt;
-      console.log(photographerMedia[i].title)
+
       // Likes counter
 
       const likesNumber = getLikesNumber(photographerMedia);
@@ -82,10 +82,10 @@ function getMediaDom(photographerMedia, photographer) {
           modalContent.innerHTML = "";
           const medias = photographerMedia.map((media) =>
             mediaFactory(media, photographer.name)
-          );console.log(title)
-          console.log(medias)
+          );
           medias.forEach((media) => {
-            modalContent.appendChild(media);
+            modalContent.appendChild(media.htmlBlock);
+            modalContent.appendChild(media.caption);
           });
           modal.style.display = "block";
           currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
@@ -332,7 +332,6 @@ document.getElementById("formulaire").addEventListener("submit", validate);
 // Checking input before validating and sending form results
 function validate(e) {
   e.preventDefault(); //to prevent page from recharging
-  console.log(first.value, last.value, email.value, story.value);
   if (first.value == "" || first.value.length < 2) {
     formData[0].dataset.errorVisible = true;
     return false;

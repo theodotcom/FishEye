@@ -1,25 +1,31 @@
 import { getNickname } from "../utils/index.js";
 
 export default function mediaFactory(data, photographerName) {
+  let htmlBlock;
+  
   const picture = `Sample Photos/${getNickname(photographerName)}/${
     data.image ? data.image : data.video
   }`;
-  const title = data.title;
-  console.log(title)
+
   if (data.image) {
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    return img ;
+    htmlBlock = document.createElement("img");
+    htmlBlock.setAttribute("src", picture);
   } else if (data.video) {
-    const video = document.createElement("video");
-    video.controls = true;
+    htmlBlock = document.createElement("video");
+    htmlBlock.controls = true;
     const source = document.createElement("source");
     source.setAttribute("src", picture);
     source.setAttribute("type", "video/mp4");
-    video.appendChild(source);
-    video.addEventListener("click", function () {
-      source.setAttribute("play", true);
+    htmlBlock.appendChild(source);
+    htmlBlock.addEventListener("click", function () {
+      htmlBlock.setAttribute("play", true);
     });
-    return video;
   }
+
+  //Create caption
+  let caption = document.createElement("div");
+  caption.innerHTML = data.title
+  caption.id = 'caption'
+
+  return {htmlBlock, caption};
 }
