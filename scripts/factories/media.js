@@ -9,6 +9,8 @@ export default function mediaFactory(data, photographerName) {
   if (data.image) {
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    console.log(img);
+    console.log(title);
     return img ;
   } else if (data.video) {
     const video = document.createElement("video");
