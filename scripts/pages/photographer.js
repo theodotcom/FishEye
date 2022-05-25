@@ -84,8 +84,9 @@ function getMediaDom(photographerMedia, photographer) {
             mediaFactory(media, photographer.name)
           );
           medias.forEach((media) => {
-            modalContent.appendChild(media.htmlBlock);
-            modalContent.appendChild(media.caption);
+            let newDiv = modalContent.appendChild(document.createElement('div'));
+            newDiv.appendChild(media.htmlBlock);
+            newDiv.appendChild(media.caption);
           });
           modal.style.display = "block";
           currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
