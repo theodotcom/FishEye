@@ -100,14 +100,17 @@ function getMediaDom(photographerMedia, photographer) {
         if (event.keyCode == 13 && event.target.dataset.card == "media") {
         modalContent.innerHTML = "";
         const medias = photographerMedia.map((media) =>
-          mediaFactory(media, photographer.name)
-        );
-        medias.forEach((media) => {
-          modalContent.appendChild(media);
-        });
-        modal.style.display = "block";
-        currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
-        nextSlide(); // On provoque la translation du slider pour aller sur la bonne slide
+            mediaFactory(media, photographer.name)
+          );
+          medias.forEach((media) => {
+            let newDiv = modalContent.appendChild(document.createElement('div'));
+            newDiv.setAttribute("class", "newDiv");
+            newDiv.appendChild(media.htmlBlock);
+            newDiv.appendChild(media.caption);
+          });
+          modal.style.display = "block";
+          currentSlide = i - 1; // ON initialise current slide avec l'index de la photo cliquée
+          nextSlide(); // On provoque la translation du slider pour aller sur la bonne slide
       }}))(i);
 
       // Generate other DOM elements
@@ -398,6 +401,12 @@ window.onclick = function (event) {
     modalbg.style.display = "none";
   }
 };
+// Accessibility
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    modalbg.style.display = 'none'
+  }
+})
 
 const closeBground2 = () => {
   modalbg.style.display = "none";
