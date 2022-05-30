@@ -30,8 +30,6 @@ async function init() {
     const searchParams = new URLSearchParams(queryString); // => id
 
     const photographerId = searchParams.get('id'); // ==> 243
-    console.log('the rrrr : ', photographerId);
-    const photographer = photographers.find(photographer => photographer.id === photographerId) // le même id que celui qui a été envoyé dans l'URL;
 
     media.forEach((media) => {
       // Pour chaque média, on cherche l'id du photographe qui est égale a  media.photographerId
