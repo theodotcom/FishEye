@@ -1,8 +1,6 @@
-/* eslint-disable require-jsdoc */
 import {getMediaDom} from '../factories/page.js';
-import {initCarouselEvent} from '../factories/page.js';
+import { getPhotographerDom } from '../factories/photographer.js';
 const modal = document.getElementById('myModal');
-const modalbg = document.querySelector('.bground');
 const span = document.getElementsByClassName('close')[0];
 let currentSlide = 0;
 let nbMedias = 0;
@@ -26,49 +24,6 @@ async function displayMediasData(photographerDetails, photographer) {
   const mediaModel = getMediaDom(photographerDetails, photographer);
   const userCardDOM = mediaModel.getUserCardDOM();
   mediaSection.appendChild(userCardDOM);
-}
-
-
-// Get the datas of all the photographer to push them into the DOM
-
-function getPhotographerDom(data) {
-  const {name, portrait, tagline, city, country} = data;
-  const picture = `Sample Photos/Photographers ID Photos/${portrait}`;
-
-  function getUserCardDOM() {
-    const theDiv = document.createElement('div');
-    theDiv.setAttribute('id', 'theDiv');
-    const myDiv1 = document.createElement('div');
-    myDiv1.setAttribute('class', 'myDiv1');
-    const h2 = document.createElement('h2');
-    h2.textContent = name;
-    const h3 = document.createElement('h3');
-    h3.textContent = city + ',' + ' ' + country;
-    const my1p = document.createElement('p');
-    my1p.textContent = tagline;
-    const myDiv2 = document.createElement('button');
-    myDiv2.setAttribute('class', 'contact_button');
-    myDiv2.tabIndex = 1;
-    myDiv2.textContent = 'Contactez-moi';
-    myDiv2.addEventListener('click', function launchModal() {
-      modalbg.style.display = 'block';
-    });
-    // add event listener for contact form
-    const myDiv3 = document.createElement('div');
-    myDiv3.setAttribute('class', 'myDiv2');
-    const img = document.createElement('img');
-    img.setAttribute('src', picture);
-    theDiv.appendChild(myDiv1);
-    myDiv1.appendChild(h2);
-    myDiv1.appendChild(h3);
-    myDiv1.appendChild(my1p);
-    theDiv.appendChild(myDiv2);
-    theDiv.appendChild(myDiv3);
-    myDiv3.appendChild(img);
-    return theDiv;
-  }
-
-  return {getUserCardDOM};
 }
 
 
@@ -100,6 +55,31 @@ function initEvent() {
     photographerInfoDom.appendChild(cardsDom);
   });
 }
+
+function initCarouselEvent() {
+  const next = document.querySelector('.next');
+  const previous = document.querySelector('.prev');
+
+  next.addEventListener('click', nextSlide);
+  previous.addEventListener('click', previousSlide);
+}
+
+// When the user clicks on <span> (x), close the modal
+span.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Accessibility from keyboard into caroussel
+window.onkeyup = function(e) {
+  if (e.keyCode == 27) {
+    modal.style.display = 'none';
+  } else if (e.keyCode == 39) {
+    nextSlide();
+  } else if (e.keyCode == 37) {
+    previousSlide();
+  }
+};
+
 
 function nextSlide() {
   const carousel = document.querySelector('.carousel-container');
@@ -148,22 +128,3 @@ function init(phDetails) {
 }
 
 init([]);
-
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
-
-// Accessibility from keyboard into caroussel
-window.onkeyup = function(e) {
-  if (e.keyCode == 27) {
-    modal.style.display = 'none';
-  } else if (e.keyCode == 39) {
-    nextSlide();
-  } else if (e.keyCode == 37) {
-    previousSlide();
-  }
-};
-
-

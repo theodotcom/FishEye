@@ -1,10 +1,11 @@
-// Get the medias of the photographer to push them into the DOM
 import {getNickname} from '../utils/index.js';
 import mediaFactory from '../factories/media.js';
 const modal = document.getElementById('myModal');
 const likeIds = [];
 let currentSlide = 0;
 const nbMedias = 0;
+
+// Factory for Each photographers infos 
 
 export function getMediaDom(photographerMedia, photographer) {
   function getUserCardDOM() {
@@ -16,7 +17,6 @@ export function getMediaDom(photographerMedia, photographer) {
       const {likes, title} = elmt;
 
       // Likes counter
-
       const likesNumber = getLikesNumber(photographerMedia);
       const likeys = document.getElementById('myLikes');
       likeys.textContent = likesNumber;
@@ -147,19 +147,4 @@ function nextSlide() {
   carousel.style.transform = `translateX(-${currentSlide * 300}px)`;
 }
 
-function previousSlide() {
-  const carousel = document.querySelector('.carousel-container');
-  currentSlide -= 1;
-  if (currentSlide === -1) {
-    currentSlide = nbMedias - 1;
-  }
-  carousel.style.transform = `translateX(-${currentSlide * 300}px)`;
-}
 
-export function initCarouselEvent() {
-  const next = document.querySelector('.next');
-  const previous = document.querySelector('.prev');
-
-  next.addEventListener('click', nextSlide);
-  previous.addEventListener('click', previousSlide);
-}

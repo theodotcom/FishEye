@@ -1,6 +1,7 @@
 import {getNickname} from '../utils/index.js';
 
-// eslint-disable-next-line require-jsdoc
+// Get medias for the caroussel
+
 export default function mediaFactory(data, photographerName) {
   let htmlBlock;
 
