@@ -1,19 +1,5 @@
-/* eslint-disable require-jsdoc */
 import {photographerFactory} from '../factories/photographer.js';
-
-export async function getPhotographers() {
-  const fetchData = await fetch('https://theodotcom.github.io/FishEye/data/photographers.json')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) =>{
-        return data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  return fetchData;
-}
+import {getPhotographers} from "../utils/api.js";
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section');

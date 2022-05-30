@@ -3,6 +3,8 @@
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
+  max-width: 1440px;
+  margin: auto;
 }
 
 header {
@@ -59,7 +61,7 @@ h1 {
 }
 
 .photographer_section article:focus {
-  background-color: #818f83;
+  background-color: #deede0;
 }
 
 .photographer_section article h2 {
@@ -100,7 +102,7 @@ h1 {
 .photographer_info div img,
 .photographer_info div video {
   height: 290px;
-  width: 290px;
+  width: 100%;
   border-radius: 10px;
   object-fit: cover;
 }

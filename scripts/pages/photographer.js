@@ -1,5 +1,6 @@
 import {getMediaDom} from '../factories/page.js';
 import { getPhotographerDom } from '../factories/photographer.js';
+import {getPhotographers} from "../utils/api.js";
 const modal = document.getElementById('myModal');
 const span = document.getElementsByClassName('close')[0];
 let currentSlide = 0;
@@ -38,16 +39,17 @@ function initEvent() {
     photographerInfoDom.innerHTML = '';
     photographerInfoDom.appendChild(cardsDom);
   });
+
+  // When the user clicks on <span> (x), close the modal
+  span.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
 }
 
 function init(phDetails) {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
-  fetch(
-      'https://theodotcom.github.io/FishEye/data/photographers.json',
-  )
-      .then((res) => res.json())
-      .then((data) => {
+  getPhotographers().then(data => {
         const pageId = searchParams.get('id');
         if (phDetails.length === 0) {
           photographerDetails = data.media.filter(
@@ -64,7 +66,7 @@ function init(phDetails) {
         displayMediasData(photographerDetails, photographer);
         initEvent();
         initCarouselEvent();
-      });
+  })
 }
 
 function initCarouselEvent() {
@@ -73,6 +75,16 @@ function initCarouselEvent() {
 
   next.addEventListener('click', nextSlide);
   previous.addEventListener('click', previousSlide);
+
+  window.addEventListener('keyup', function(e) {
+    if (e.keyCode == 27) {
+      modal.style.display = 'none';
+    } else if (e.keyCode == 39) {
+      nextSlide();
+    } else if (e.keyCode == 37) {
+      previousSlide();
+    }
+  });
 }
 
 function sortPhotographerDetails(type) {
@@ -89,23 +101,6 @@ function sortPhotographerDetails(type) {
     }
   });
 }
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
-
-// Accessibility from keyboard into caroussel
-window.onkeyup = function(e) {
-  if (e.keyCode == 27) {
-    modal.style.display = 'none';
-  } else if (e.keyCode == 39) {
-    nextSlide();
-  } else if (e.keyCode == 37) {
-    previousSlide();
-  }
-};
-
 
 function nextSlide() {
   const carousel = document.querySelector('.carousel-container');
@@ -124,8 +119,5 @@ function previousSlide() {
   }
   carousel.style.transform = `translateX(-${currentSlide * 300}px)`;
 }
-
-
-
 
 init([]);
