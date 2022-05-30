@@ -1,30 +1,31 @@
-import { getNickname } from "../utils/index.js";
+import {getNickname} from '../utils/index.js';
 
+// eslint-disable-next-line require-jsdoc
 export default function mediaFactory(data, photographerName) {
   let htmlBlock;
-  
+
   const picture = `Sample Photos/${getNickname(photographerName)}/${
     data.image ? data.image : data.video
   }`;
 
   if (data.image) {
-    htmlBlock = document.createElement("img");
-    htmlBlock.setAttribute("src", picture);
+    htmlBlock = document.createElement('img');
+    htmlBlock.setAttribute('src', picture);
   } else if (data.video) {
-    htmlBlock = document.createElement("video");
+    htmlBlock = document.createElement('video');
     htmlBlock.controls = true;
-    const source = document.createElement("source");
-    source.setAttribute("src", picture);
-    source.setAttribute("type", "video/mp4");
+    const source = document.createElement('source');
+    source.setAttribute('src', picture);
+    source.setAttribute('type', 'video/mp4');
     htmlBlock.appendChild(source);
-    htmlBlock.addEventListener("click", function () {
-      htmlBlock.setAttribute("play", true);
+    htmlBlock.addEventListener('click', function() {
+      htmlBlock.setAttribute('play', true);
     });
   }
 
-  //Create caption
-  let caption = document.createElement("p");
-  caption.innerHTML = data.title
+  // Create caption
+  const caption = document.createElement('p');
+  caption.innerHTML = data.title;
 
   return {htmlBlock, caption};
 }
