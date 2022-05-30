@@ -26,29 +26,8 @@ async function displayData(photographers) {
 
 async function init() {
   // Récupère les datas des photographes
-  const {photographers, media} = await getPhotographers();
-  console.log(photographers);
-  const queryString = window.location.search; // "?id=243"
-  const searchParams = new URLSearchParams(queryString); // => id
-
-  const photographerId = searchParams.get('id'); // ==> 243
-
-  media.forEach((media) => {
-    // Pour chaque média, on cherche l'id du photographe
-    // qui est égale a  media.photographerId
-    if (photographers.find((x) => x.id === media.photographerId)) {
-      const owner = photographers.find((x) => x.id === media.photographerId);
-
-       owner.medias ? owner.medias.push(media) : owner['medias'] = [media];
-
-      // syntaxe basique
-      // if(owner.medias) {
-      //   owner.push(media)
-      // } else {
-      //  owner['medias'] = [media]
-      // }
-    }
-  });
+  const {photographers} = await getPhotographers();
+ 
   displayData(photographers);
 };
 init();
