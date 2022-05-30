@@ -26,22 +26,6 @@ async function displayMediasData(photographerDetails, photographer) {
   mediaSection.appendChild(userCardDOM);
 }
 
-
-function sortPhotographerDetails(type) {
-  return photographerDetails.sort((d1, d2) => {
-    if (type === 'date') {
-      return d1.date > d2.date ? 1 : -1;
-    }
-
-    if (type === 'title') {
-      return d1.title > d2.title ? 1 : -1;
-    }
-    if (type === 'popularity') {
-      return d1.likes < d2.likes ? 1 : -1;
-    }
-  });
-}
-
 function initEvent() {
   const filterSelectForm = document.querySelector('#filterSelect');
   filterSelectForm.addEventListener('change', (e) => {
@@ -56,12 +40,54 @@ function initEvent() {
   });
 }
 
+function init(phDetails) {
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  fetch(
+      'https://theodotcom.github.io/FishEye/data/photographers.json',
+  )
+      .then((res) => res.json())
+      .then((data) => {
+        const pageId = searchParams.get('id');
+        if (phDetails.length === 0) {
+          photographerDetails = data.media.filter(
+              (media) => media.photographerId == pageId,
+          );
+        } else {
+          photographerDetails = phDetails;
+        }
+        photographer = data.photographers.find(
+            (photographer) => photographer.id == pageId,
+        );
+        nbMedias = photographerDetails.length;
+        displayPhotographerData(photographer);
+        displayMediasData(photographerDetails, photographer);
+        initEvent();
+        initCarouselEvent();
+      });
+}
+
 function initCarouselEvent() {
   const next = document.querySelector('.next');
   const previous = document.querySelector('.prev');
 
   next.addEventListener('click', nextSlide);
   previous.addEventListener('click', previousSlide);
+}
+
+function sortPhotographerDetails(type) {
+  return photographerDetails.sort((d1, d2) => {
+    if (type === 'date') {
+      return d1.date > d2.date ? 1 : -1;
+    }
+
+    if (type === 'title') {
+      return d1.title > d2.title ? 1 : -1;
+    }
+    if (type === 'popularity') {
+      return d1.likes < d2.likes ? 1 : -1;
+    }
+  });
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -100,31 +126,6 @@ function previousSlide() {
 }
 
 
-function init(phDetails) {
-  const queryString = window.location.search;
-  const searchParams = new URLSearchParams(queryString);
-  fetch(
-      'https://theodotcom.github.io/FishEye/data/photographers.json',
-  )
-      .then((res) => res.json())
-      .then((data) => {
-        const pageId = searchParams.get('id');
-        if (phDetails.length === 0) {
-          photographerDetails = data.media.filter(
-              (media) => media.photographerId == pageId,
-          );
-        } else {
-          photographerDetails = phDetails;
-        }
-        photographer = data.photographers.find(
-            (photographer) => photographer.id == pageId,
-        );
-        nbMedias = photographerDetails.length;
-        displayPhotographerData(photographer);
-        displayMediasData(photographerDetails, photographer);
-        initEvent();
-        initCarouselEvent();
-      });
-}
+
 
 init([]);
