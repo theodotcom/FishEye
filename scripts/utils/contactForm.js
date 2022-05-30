@@ -1,11 +1,6 @@
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName('close')[0];
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
-
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable require-jsdoc */
 // DOM Elements
 const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.contact_button');
@@ -85,8 +80,9 @@ function DataError(e) {
   if (validity.valid) {
     this.dataset.error = '';
   } else {
-    formData[0].dataset.error = 'Un prénom c est au moins deux caractères';
+    formData[0].dataset.error = 'Veuillez saisir au moins deux caractères';
     formData[1].dataset.error = 'Veuillez saisir au moins deux caractères';
+    formData[3].dataset.errorVisible = 'Veuillez saisisir un commentaire';
   }
 }
 

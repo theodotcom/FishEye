@@ -201,8 +201,8 @@ label {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
+  font-size: 1.2em;
+  color: #603dc2;
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
@@ -215,13 +215,13 @@ label {
   opacity: 1;
 }
 .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
+  border: 2px solid #603dc2;
 }
 
 input[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
-  color: red;
+  font-size: 1.2em;
+  color: #603dc2;
 }
 
 #story {
