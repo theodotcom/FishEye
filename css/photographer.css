@@ -293,6 +293,10 @@ form input {
 .modal-content {
   overflow: hidden;
   width: 300px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .modal-content .carousel-container {

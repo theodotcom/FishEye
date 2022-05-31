@@ -100,6 +100,7 @@ export function getMediaDom(photographerMedia, photographer) {
       h2.textContent = title;
       const h3 = document.createElement('h3');
       h3.textContent = likes;
+      h3.ariaLabel = `${likes} like`;
       const button = document.createElement('button');
       button.setAttribute('class', 'fas fa-heart');
       button.tabIndex = 1;

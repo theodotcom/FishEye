@@ -8,11 +8,12 @@ export function photographerFactory(data) {
   const picture = `Sample Photos/Photographers ID Photos/${portrait}`;
 
   function getUserCardDOM() {
-    const article = document.createElement('article');
+    const article = document.createElement('a');
     article.tabIndex = 0;
     article.href = '#';
     const img = document.createElement('img');
     img.setAttribute('src', picture);
+    img.setAttribute('alt', 'Photo de profil du photographe');
     const h2 = document.createElement('h2');
     h2.textContent = name;
     const h3 = document.createElement('h3');

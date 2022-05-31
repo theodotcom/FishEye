@@ -47,30 +47,31 @@ h1 {
   margin-top: 45px;
 }
 
-.photographer_section article {
+.photographer_section a {
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.photographer_section article :hover {
+.photographer_section a :hover {
   opacity: 70%;
 }
 
-.photographer_section article:focus {
+.photographer_section a:focus {
   background-color: #deede0;
 }
 
-.photographer_section article h2 {
+.photographer_section a h2 {
   height: 2%;
   color: #d3573c;
   font-size: 36px;
 }
 
-.photographer_section article h3 {
+.photographer_section a h3 {
   color: #901c1c;
   margin-top: 8px;
 }
@@ -80,11 +81,11 @@ h1 {
   font-size: small;
 }
 
-.photographer_section article p {
+.photographer_section a p {
   margin-top: -13px;
 }
 
-.photographer_section article img {
+.photographer_section a img {
   border-radius: 50%;
   height: 225px;
   width: 225px;

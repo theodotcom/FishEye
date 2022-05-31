@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -13,13 +13,13 @@
   <body>
     <header>
       <a href="index.html" tabindex="1">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="Logo de FishEye" />
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header" aria-label="Photographer main infos"></div>
+      <div class="photograph-header" aria-label="Informations du photographe"></div>
 
-      <div class="select" role="search">
+      <div class="select" role="search" aria-label="Bouton pour trier les photographes">
         <h3>Trier Par</h3>
         <select id="filterSelect" tabindex="1">
           <option value="date">Date</option>
@@ -28,7 +28,7 @@
         </select>
       </div>
 
-      <div class="photographer_info" aria-label="Photographers infos"></div>
+      <div class="photographer_info" aria-label="Galerie des photos"></div>
 
       <!--Likes-->
       <div class="likeContainer">
