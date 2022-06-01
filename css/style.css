@@ -155,7 +155,7 @@ button {
   display: none;
   position: relative;
   z-index: 1;
-  margin: -152% auto;
+  margin: -135% auto;
   width: 50%;
   height: 16em;
   animation-name: modalopen;

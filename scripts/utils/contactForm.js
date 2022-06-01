@@ -31,7 +31,8 @@ document.getElementById('formulaire').addEventListener('submit', validate);
 
 // Checking input before validating and sending form results
 function validate(e) {
-  e.preventDefault(); // to prevent page from recharging
+  e.preventDefault() // to prevent page from recharging
+  console.log ('form results', first.value, last.value, email.value, story.value); 
   if (first.value == '' || first.value.length < 2) {
     formData[0].dataset.errorVisible = true;
     return false;
@@ -48,7 +49,7 @@ function validate(e) {
     formData[3].dataset.errorVisible = true;
     return false;
   } else {
-    modalbg.innerHTML = ' Votre message a bien été transmis. Merci';
+    modalbg.innerHTML = 'Votre message a bien été transmis. Merci';
     modalbg.classList.add('valid-msg');
     return true; // form is send
   }
