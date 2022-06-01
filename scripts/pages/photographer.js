@@ -108,7 +108,7 @@ function nextSlide() {
   if (currentSlide === nbMedias) {
     currentSlide = 0;
   }
-  carousel.style.transform = `translateX(-${currentSlide * 300}px)`;
+  carousel.style.transform = `translateX(-${currentSlide * 500}px)`;
 }
 
 function previousSlide() {
@@ -117,7 +117,7 @@ function previousSlide() {
   if (currentSlide === -1) {
     currentSlide = nbMedias - 1;
   }
-  carousel.style.transform = `translateX(-${currentSlide * 300}px)`;
+  carousel.style.transform = `translateX(-${currentSlide * 500}px)`;
 }
 
 init([]);

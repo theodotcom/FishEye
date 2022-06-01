@@ -292,7 +292,7 @@ form input {
 
 .modal-content {
   overflow: hidden;
-  width: 300px;
+  width: 500px;
   top: 50%;
   left: 50%;
   position: absolute;
@@ -306,7 +306,7 @@ form input {
 
 .modal-content img,
 .modal-content video {
-  width: 300px;
+  width: 500px;
 }
 /*like Container*/
 
